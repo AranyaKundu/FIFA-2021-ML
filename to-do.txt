@@ -1,0 +1,10 @@
+1. Predict overall rating of a player (Given position)
+2. Predict best position for a player (Overall rating removed from dataset) [Run the algorithm for multiple times and list the outputs]
+3. Predict expected wage (Use selective parameters, {league name, position, rating, age, potential, hits, growth, final stats, base stats})
+4. Choose different methods to predict from a dropdown list
+5. Shows the summary statistics for each method
+6. Provide an option to compare different m/l methods and their accuracies.
+
+
+Deeper Analysis plan (if possible):
+How team members performances can impact the potential and growth of a player.
