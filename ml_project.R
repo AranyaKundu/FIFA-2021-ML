@@ -2,6 +2,7 @@ library(shiny)
 library(shinydashboard)
 library(shinyBS)
 library(shinyWidgets)
+library(shinycssloaders)
 library(dplyr)
 library(tibble)
 library(ggplot2)
@@ -21,11 +22,11 @@ library(randomForest)
 # functions and other computations
 
 # read data from csv
-players_df <- read.csv("D:/Coursework/Mod-2/Machine Learning/Project/MLApp/players.csv",
+players_df <- read.csv("D:/Coursework/Mod-2/Machine Learning/Project/New Folder/players.csv",
                stringsAsFactors = TRUE, header = TRUE,
                na.strings = c("", " ", "NA"))
 
-df <- read.csv("D:/Coursework/Mod-2/Machine Learning/Project/MLApp/fifa21.csv",
+df <- read.csv("D:/Coursework/Mod-2/Machine Learning/Project/New Folder/fifa21.csv",
                        stringsAsFactors = TRUE, header = TRUE,
                        na.strings = c("", " ", "NA"))
 
@@ -82,34 +83,15 @@ player_display <- function(player_Name){
 ## ML Starts here ##
 ##                ##
 ####################
-# Summarize feature variables
-# summary(pmdf[,feat_vars])
 
-# Visualize missing data
-# vis_miss(pmdf[, feat_vars], warn_large_data = FALSE)
 
-# Rows with missing data
-nan_cols <- names(which(colSums(is.na(pmdf))>0))
+# load partitioned data
 
-#impute missing data
-imputed_values <- mice(data = pmdf[, nan_cols], # Set data set
-                       m = 1, # Set number of multiple imputations
-                       maxit = 10, # Set maximum number of iterations
-                       method = "cart", # Set method
-                       seed = 7, # Set Seed
-                       print = F)
-pmdf[,nan_cols] <- complete(imputed_values, 1) # Extract imputed data
-
-# data partitioning
-set.seed(1234)
-total_obs <- nrow(pmdf)
-split_dataset <- splitstackshape::stratified(pmdf[, -1], group = "BP",
-                                             size = 0.25, bothSets = T)
-test_dataset <- split_dataset[[1]]
-train_dataset <- split_dataset[[2]]
+load("test_dataset.rda")
+load("train_dataset.rda")
 
 # model computation function based on user input
-my_model <- function(data, model_type){
+my_model <- function(model_type){
   if (model_type == 'Linear Model'){
     linear_model <- lm(OverAll_Rating ~ ., data = train_dataset)
     lm_pred <- predict(linear_model, test_dataset)
@@ -171,20 +153,20 @@ my_model <- function(data, model_type){
   else {return (paste("Model under construction!"))}
 }
 
-# Categorize Players and Apply ML Models (Performance Improvement by Clustering)
-
-MID <- pmdf |> filter(BP %in% c("CAM", "CDM", "CM", "RM", "LM"))
-DEF <- pmdf |> filter(BP %in% c("LWB", "LB", "RWB", "RB", "CB"))
-GK <- pmdf |> filter(BP %in% "GK")
-FWD <- pmdf |> filter(BP %in% c("CF", "ST", "RW", "LW"))
-
-improved_model_analysis <- function(position, model) {
-  total_data <- position
-  split_dataset <- splitstackshape::stratified(total_data,
-                                               group = 'BP', 
-                                               size = 0.2, bothSets = TRUE)
-  test_data <- split_dataset[[1]]
-  train_data <- split_dataset[[2]]
-  
-  my_model(data = total_data, model_type = model)
-}
+# # Categorize Players and Apply ML Models (Performance Improvement by Clustering)
+# 
+# MID <- pmdf |> filter(BP %in% c("CAM", "CDM", "CM", "RM", "LM"))
+# DEF <- pmdf |> filter(BP %in% c("LWB", "LB", "RWB", "RB", "CB"))
+# GK <- pmdf |> filter(BP %in% "GK")
+# FWD <- pmdf |> filter(BP %in% c("CF", "ST", "RW", "LW"))
+# 
+# improved_model_analysis <- function(position, model) {
+#   total_data <- position
+#   split_dataset <- splitstackshape::stratified(total_data,
+#                                                group = 'BP', 
+#                                                size = 0.2, bothSets = TRUE)
+#   test_data <- split_dataset[[1]]
+#   train_data <- split_dataset[[2]]
+#   
+#   my_model(data = total_data, model_type = model)
+# }

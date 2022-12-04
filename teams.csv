@@ -2,7 +2,7 @@ int_team_id,str_team_name,str_league,int_overall,int_attack,int_midfield,int_def
 1,Liverpool,English Premier League (1),85,86,84,86,10,9,90000000,Press After Possession Loss,6,7,Balanced,7,6,3,3,https://cdn.sofifa.net/teams/9/120.png
 2,Manchester City,English Premier League (1),85,86,86,83,9,10,176000000,Press After Possession Loss,7,8,Possession,6,7,3,3,https://cdn.sofifa.net/teams/10/120.png
 3,Real Madrid,Spain Primera Division (1),85,84,87,84,10,10,188500000,Balanced,5,8,Possession,5,6,3,3,https://cdn.sofifa.net/teams/243/120.png
-4,FC Bayern München,German 1. Bundesliga (1),84,91,84,83,10,10,100000000,Pressure On Heavy Touch,4,8,Possession,8,7,3,3,https://cdn.sofifa.net/teams/21/120.png
+4,FC Bayern München,Bundesliga (1),84,91,84,83,10,10,100000000,Pressure On Heavy Touch,4,8,Possession,8,7,3,3,https://cdn.sofifa.net/teams/21/120.png
 5,FC Barcelona,Spain Primera Division (1),84,82,87,83,10,10,180500000,Balanced,6,8,Possession,3,7,3,3,https://cdn.sofifa.net/teams/241/120.png
 6,Juventus,Italian Serie A (1),83,87,81,84,10,10,105000000,Pressure On Heavy Touch,5,7,Possession,6,8,3,3,https://cdn.sofifa.net/teams/45/120.png
 7,Paris Saint-Germain,French Ligue 1 (1),83,86,82,81,9,10,130000000,Pressure On Heavy Touch,6,7,Possession,6,8,3,3,https://cdn.sofifa.net/teams/73/120.png
@@ -10,25 +10,25 @@ int_team_id,str_team_name,str_league,int_overall,int_attack,int_midfield,int_def
 9,Chelsea,English Premier League (1),82,85,83,81,7,8,85000000,Balanced,6,7,Possession,5,6,3,3,https://cdn.sofifa.net/teams/5/120.png
 10,Manchester United,English Premier League (1),82,84,82,81,7,8,177000000,Pressure On Heavy Touch,4,6,Balanced,6,4,3,3,https://cdn.sofifa.net/teams/11/120.png
 11,Tottenham Hotspur,English Premier League (1),82,86,82,81,7,8,75000000,Drop Back,4,4,Balanced,4,5,3,3,https://cdn.sofifa.net/teams/18/120.png
-12,Borussia Dortmund,German 1. Bundesliga (1),82,84,82,81,8,9,60000000,Balanced,5,7,Balanced,4,7,3,3,https://cdn.sofifa.net/teams/22/120.png
+12,Borussia Dortmund,Bundesliga (1),82,84,82,81,8,9,60000000,Balanced,5,7,Balanced,4,7,3,3,https://cdn.sofifa.net/teams/22/120.png
 13,Inter,Italian Serie A (1),82,83,82,81,7,9,99500000,Pressure On Heavy Touch,6,7,Balanced,6,4,3,3,https://cdn.sofifa.net/teams/44/120.png
 14,Arsenal,English Premier League (1),80,84,81,77,7,7,80000000,Balanced,5,4,Balanced,6,5,3,3,https://cdn.sofifa.net/teams/1/120.png
-15,RB Leipzig,German 1. Bundesliga (1),80,78,80,80,7,8,50000000,Press After Possession Loss,5,7,Balanced,3,8,3,3,https://cdn.sofifa.net/teams/112172/120.png
+15,RB Leipzig,Bundesliga (1),80,78,80,80,7,8,50000000,Press After Possession Loss,5,7,Balanced,3,8,3,3,https://cdn.sofifa.net/teams/112172/120.png
 16,Lazio,Italian Serie A (1),80,82,80,79,6,7,39000000,Balanced,6,6,Long Ball,7,3,3,3,https://cdn.sofifa.net/teams/46/120.png
 17,Napoli,Italian Serie A (1),80,81,80,80,7,9,56000000,Balanced,5,6,Balanced,7,8,3,3,https://cdn.sofifa.net/teams/48/120.png
 18,Leicester City,English Premier League (1),80,81,79,79,6,6,45000000,Balanced,5,5,Balanced,6,4,3,3,https://cdn.sofifa.net/teams/95/120.png
 19,Sevilla FC,Spain Primera Division (1),80,80,80,81,7,7,34500000,Pressure On Heavy Touch,7,7,Balanced,8,8,3,3,https://cdn.sofifa.net/teams/481/120.png
 20,Villarreal CF,Spain Primera Division (1),80,81,80,79,7,8,32900000,Balanced,6,5,Balanced,6,7,3,3,https://cdn.sofifa.net/teams/483/120.png
 21,Everton,English Premier League (1),79,81,78,80,5,6,51000000,Balanced,6,6,Balanced,6,4,3,3,https://cdn.sofifa.net/teams/7/120.png
-22,Borussia Mönchengladbach,German 1. Bundesliga (1),79,79,79,79,5,7,25000000,Press After Possession Loss,7,6,Balanced,6,6,3,3,https://cdn.sofifa.net/teams/23/120.png
-23,Bayer 04 Leverkusen,German 1. Bundesliga (1),79,78,78,79,6,7,39000000,Press After Possession Loss,5,7,Balanced,8,8,3,3,https://cdn.sofifa.net/teams/3204/120.png
+22,Borussia Mönchengladbach,Bundesliga (1),79,79,79,79,5,7,25000000,Press After Possession Loss,7,6,Balanced,6,6,3,3,https://cdn.sofifa.net/teams/23/120.png
+23,Bayer 04 Leverkusen,Bundesliga (1),79,78,78,79,6,7,39000000,Press After Possession Loss,5,7,Balanced,8,8,3,3,https://cdn.sofifa.net/teams/3204/120.png
 24,Atalanta,Italian Serie A (1),79,83,79,77,3,6,28000000,Press After Possession Loss,4,7,Balanced,6,5,3,3,https://cdn.sofifa.net/teams/39/120.png
 25,Milan,Italian Serie A (1),79,83,77,78,7,7,37000000,Balanced,6,7,Balanced,6,8,3,3,https://cdn.sofifa.net/teams/47/120.png
 26,Athletic Club de Bilbao,Spain Primera Division (1),79,79,78,80,6,6,18500000,Balanced,5,7,Long Ball,8,3,3,3,https://cdn.sofifa.net/teams/448/120.png
 27,Real Sociedad,Spain Primera Division (1),79,81,81,77,3,5,15800000,Balanced,4,5,Possession,6,6,3,3,https://cdn.sofifa.net/teams/457/120.png
 28,SL Benfica,Portuguese Liga ZON SAGRES (1),79,74,80,79,7,10,25300000,Pressure On Heavy Touch,4,6,Balanced,5,6,3,3,https://cdn.sofifa.net/teams/234/120.png
 29,West Ham United,English Premier League (1),78,79,78,76,4,4,35000000,Balanced,5,5,Balanced,7,4,3,3,https://cdn.sofifa.net/teams/19/120.png
-30,Roma,,78,79,78,76,7,8,46000000,Balanced,6,8,Balanced,6,4,3,3,https://cdn.sofifa.net/teams/52/120.png
+30,Roma,Italian Serie A (1),78,79,78,76,7,8,46000000,Balanced,6,8,Balanced,6,4,3,3,https://cdn.sofifa.net/teams/52/120.png
 31,Wolverhampton Wanderers,English Premier League (1),78,78,82,78,4,5,45000000,Balanced,7,5,Balanced,8,4,3,3,https://cdn.sofifa.net/teams/110/120.png
 32,Real Betis,Spain Primera Division (1),78,76,79,78,2,5,16100000,Pressure On Heavy Touch,4,6,Balanced,6,7,3,3,https://cdn.sofifa.net/teams/449/120.png
 33,Olympique de Marseille,French Ligue 1 (1),78,78,78,77,5,8,14000000,Balanced,6,6,Long Ball,6,6,3,3,https://cdn.sofifa.net/teams/219/120.png
@@ -36,13 +36,13 @@ int_team_id,str_team_name,str_league,int_overall,int_attack,int_midfield,int_def
 35,Ajax,Holland Eredivisie (1),78,79,77,79,7,10,29500000,Press After Possession Loss,6,8,Possession,7,8,3,3,https://cdn.sofifa.net/teams/245/120.png
 36,Crystal Palace,English Premier League (1),77,79,76,76,2,3,30000000,Balanced,4,4,Balanced,7,4,3,3,https://cdn.sofifa.net/teams/1799/120.png
 37,Newcastle United,English Premier League (1),77,76,77,76,3,4,30000000,Drop Back,4,3,Long Ball,6,4,3,3,https://cdn.sofifa.net/teams/13/120.png
-38,Eintracht Frankfurt,German 1. Bundesliga (1),77,78,76,77,5,6,25000000,Press After Possession Loss,6,6,Long Ball,6,6,3,3,https://cdn.sofifa.net/teams/1824/120.png
-39,TSG 1899 Hoffenheim,German 1. Bundesliga (1),77,79,76,75,5,6,28000000,Balanced,5,5,Balanced,5,5,3,3,https://cdn.sofifa.net/teams/100291899/120.png
+38,Eintracht Frankfurt,Bundesliga (1),77,78,76,77,5,6,25000000,Press After Possession Loss,6,6,Long Ball,6,6,3,3,https://cdn.sofifa.net/teams/1824/120.png
+39,TSG 1899 Hoffenheim,Bundesliga (1),77,79,76,75,5,6,28000000,Balanced,5,5,Balanced,5,5,3,3,https://cdn.sofifa.net/teams/100291899/120.png
 40,LOSC Lille,French Ligue 1 (1),77,77,77,75,4,7,14000000,Pressure On Heavy Touch,6,6,Balanced,6,6,3,3,https://cdn.sofifa.net/teams/65/120.png
 41,Olympique Lyonnais,French Ligue 1 (1),77,78,77,77,6,8,43900000,Pressure On Heavy Touch,5,5,Balanced,7,5,3,3,https://cdn.sofifa.net/teams/66/120.png
 42,Getafe CF,Spain Primera Division (1),77,77,77,78,3,5,8300000,Pressure On Heavy Touch,4,7,Long Ball,7,3,3,3,https://cdn.sofifa.net/teams/1860/120.png
 43,AS Monaco,French Ligue 1 (1),77,80,76,75,6,8,34600000,Pressure On Heavy Touch,5,6,Balanced,7,5,3,3,https://cdn.sofifa.net/teams/69/120.png
-44,VfL Wolfsburg,German 1. Bundesliga (1),77,77,77,74,5,6,40000000,Press After Possession Loss,7,5,Long Ball,7,5,3,3,https://cdn.sofifa.net/teams/175/120.png
+44,VfL Wolfsburg,Bundesliga (1),77,77,77,74,5,6,40000000,Press After Possession Loss,7,5,Long Ball,7,5,3,3,https://cdn.sofifa.net/teams/175/120.png
 45,Valencia CF,Spain Primera Division (1),77,77,77,76,6,8,60000000,Balanced,4,4,Balanced,4,4,3,3,https://cdn.sofifa.net/teams/461/120.png
 46,Sporting CP,Portuguese Liga ZON SAGRES (1),77,76,75,76,4,9,21600000,Pressure On Heavy Touch,5,5,Balanced,6,5,3,3,https://cdn.sofifa.net/teams/237/120.png
 47,Granada CF,Spain Primera Division (1),77,77,77,77,1,7,7600000,Drop Back,4,5,Long Ball,7,3,3,3,https://cdn.sofifa.net/teams/110832/120.png
@@ -59,7 +59,7 @@ int_team_id,str_team_name,str_league,int_overall,int_attack,int_midfield,int_def
 58,Boca Juniors,Argentina Primera División  (1),76,75,75,76,9,10,30000000,Press After Possession Loss,6,5,Long Ball,7,6,3,3,https://cdn.sofifa.net/teams/1877/120.png
 59,SC Braga,Portuguese Liga ZON SAGRES (1),76,79,74,76,3,8,14000000,Pressure On Heavy Touch,4,5,Balanced,6,4,3,3,https://cdn.sofifa.net/teams/1896/120.png
 60,Medipol Başakşehir FK,Turkish Süper Lig (1),76,75,76,76,5,8,13200000,Pressure On Heavy Touch,7,6,Balanced,6,7,3,3,https://cdn.sofifa.net/teams/101014/120.png
-61,Hertha BSC,German 1. Bundesliga (1),76,77,77,75,4,6,60000000,Balanced,5,6,Balanced,5,6,3,3,https://cdn.sofifa.net/teams/166/120.png
+61,Hertha BSC,Bundesliga (1),76,77,77,75,4,6,60000000,Balanced,5,6,Balanced,5,6,3,3,https://cdn.sofifa.net/teams/166/120.png
 62,RC Celta,Spain Primera Division (1),76,78,74,76,4,5,11800000,Pressure On Heavy Touch,7,6,Balanced,4,6,3,3,https://cdn.sofifa.net/teams/450/120.png
 63,Deportivo Alavés,Spain Primera Division (1),76,77,74,76,1,3,4400000,Drop Back,5,3,Fast Build Up,7,3,3,3,https://cdn.sofifa.net/teams/463/120.png
 64,SD Eibar,Spain Primera Division (1),76,75,77,74,1,4,6500000,Press After Possession Loss,5,8,Long Ball,6,5,3,3,https://cdn.sofifa.net/teams/467/120.png
@@ -69,7 +69,7 @@ int_team_id,str_team_name,str_league,int_overall,int_attack,int_midfield,int_def
 68,Watford,English League Championship (2),75,74,75,73,2,3,35000000,Balanced,5,5,Long Ball,4,4,3,3,https://cdn.sofifa.net/teams/1795/120.png
 69,Leeds United,English Premier League (1),75,77,75,74,1,9,16500000,Press After Possession Loss,6,6,Possession,6,4,3,3,https://cdn.sofifa.net/teams/8/120.png
 70,Olympiacos CFP,Greek Super League (1),75,78,76,74,5,10,19000000,Press After Possession Loss,5,7,Balanced,7,7,3,3,https://cdn.sofifa.net/teams/280/120.png
-71,FC Schalke 04,German 1. Bundesliga (1),75,75,77,74,5,6,20000000,Pressure On Heavy Touch,5,5,Long Ball,7,4,3,3,https://cdn.sofifa.net/teams/3404/120.png
+71,FC Schalke 04,Bundesliga (1),75,75,77,74,5,6,20000000,Pressure On Heavy Touch,5,5,Long Ball,7,4,3,3,https://cdn.sofifa.net/teams/3404/120.png
 72,Cagliari,Italian Serie A (1),75,75,74,72,1,4,10000000,Pressure On Heavy Touch,5,6,Balanced,6,5,3,3,https://cdn.sofifa.net/teams/1842/120.png
 73,Galatasaray SK,Turkish Süper Lig (1),75,80,74,75,7,10,25100000,Pressure On Heavy Touch,5,6,Balanced,5,3,3,3,https://cdn.sofifa.net/teams/325/120.png
 74,Fenerbahçe SK,Turkish Süper Lig (1),75,75,75,74,6,9,26500000,Balanced,6,6,Balanced,7,6,3,3,https://cdn.sofifa.net/teams/326/120.png
@@ -87,13 +87,13 @@ int_team_id,str_team_name,str_league,int_overall,int_attack,int_midfield,int_def
 86,SK Slavia Praha,Czech Republic Gambrinus Liga (1),74,71,73,74,4,10,6000000,Press After Possession Loss,6,6,Balanced,7,5,3,3,https://cdn.sofifa.net/teams/266/120.png
 87,Atlético Mineiro,Campeonato Brasileiro Série A (1),74,74,74,74,7,7,19000000,Press After Possession Loss,6,6,Balanced,6,6,3,3,https://cdn.sofifa.net/teams/1035/120.png
 88,Internacional,Campeonato Brasileiro Série A (1),74,71,74,74,6,7,7700000,Press After Possession Loss,6,6,Balanced,7,4,3,3,https://cdn.sofifa.net/teams/1048/120.png
-89,SC Freiburg,German 1. Bundesliga (1),74,73,74,75,3,3,10500000,Balanced,4,5,Balanced,4,3,3,3,https://cdn.sofifa.net/teams/25/120.png
-90,1. FC Köln,German 1. Bundesliga (1),74,75,74,72,3,4,12500000,Balanced,5,5,Long Ball,7,5,3,3,https://cdn.sofifa.net/teams/311/120.png
-91,SV Werder Bremen,German 1. Bundesliga (1),74,74,70,74,3,5,12000000,Balanced,6,6,Balanced,6,6,3,3,https://cdn.sofifa.net/teams/38/120.png
+89,SC Freiburg,Bundesliga (1),74,73,74,75,3,3,10500000,Balanced,4,5,Balanced,4,3,3,3,https://cdn.sofifa.net/teams/25/120.png
+90,1. FC Köln,Bundesliga (1),74,75,74,72,3,4,12500000,Balanced,5,5,Long Ball,7,5,3,3,https://cdn.sofifa.net/teams/311/120.png
+91,SV Werder Bremen,Bundesliga (1),74,74,70,74,3,5,12000000,Balanced,6,6,Balanced,6,6,3,3,https://cdn.sofifa.net/teams/38/120.png
 92,Sampdoria,Italian Serie A (1),74,77,74,72,3,4,12000000,Drop Back,5,5,Fast Build Up,7,6,3,3,https://cdn.sofifa.net/teams/1837/120.png
 93,Parma,Italian Serie A (1),74,75,75,72,2,4,8000000,Drop Back,4,4,Fast Build Up,7,5,3,3,https://cdn.sofifa.net/teams/50/120.png
 94,Udinese,Italian Serie A (1),74,74,75,72,3,4,8000000,Balanced,6,5,Long Ball,7,3,3,3,https://cdn.sofifa.net/teams/55/120.png
-95,FC Augsburg,German 1. Bundesliga (1),74,76,74,73,3,4,9500000,Balanced,5,4,Long Ball,6,3,3,3,https://cdn.sofifa.net/teams/100409/120.png
+95,FC Augsburg,Bundesliga (1),74,76,74,73,3,4,9500000,Balanced,5,4,Long Ball,6,3,3,3,https://cdn.sofifa.net/teams/100409/120.png
 96,FC Girondins de Bordeaux,French Ligue 1 (1),74,73,75,75,3,6,10400000,Balanced,5,5,Balanced,6,3,3,3,https://cdn.sofifa.net/teams/59/120.png
 97,PFC CSKA Moscow,Russian Premier League (1),74,74,71,74,7,10,13100000,Balanced,4,6,Balanced,5,7,3,3,https://cdn.sofifa.net/teams/315/120.png
 98,Montpellier HSC,French Ligue 1 (1),74,77,75,74,2,6,8800000,Balanced,4,4,Balanced,4,3,3,3,https://cdn.sofifa.net/teams/70/120.png
@@ -106,7 +106,7 @@ int_team_id,str_team_name,str_league,int_overall,int_attack,int_midfield,int_def
 105,Bournemouth,English League Championship (2),74,73,74,74,1,2,36500000,Balanced,5,4,Balanced,7,5,3,3,https://cdn.sofifa.net/teams/1943/120.png
 106,Lokomotiv Moscow,Russian Premier League (1),74,75,71,73,4,9,15700000,Pressure On Heavy Touch,5,7,Balanced,5,4,3,3,https://cdn.sofifa.net/teams/100765/120.png
 107,Spartak Moscow,Russian Premier League (1),74,74,75,73,4,10,20000000,Pressure On Heavy Touch,6,7,Balanced,6,4,3,3,https://cdn.sofifa.net/teams/100767/120.png
-108,1. FSV Mainz 05,German 1. Bundesliga (1),74,74,75,73,3,4,9200000,Pressure On Heavy Touch,6,6,Long Ball,6,5,3,3,https://cdn.sofifa.net/teams/169105/120.png
+108,1. FSV Mainz 05,Bundesliga (1),74,74,75,73,3,4,9200000,Pressure On Heavy Touch,6,6,Long Ball,6,5,3,3,https://cdn.sofifa.net/teams/169105/120.png
 109,Tigres U.A.N.L.,Mexican Liga MX (1),74,75,75,73,7,9,20100000,Balanced,7,7,Possession,7,6,3,3,https://cdn.sofifa.net/teams/1970/120.png
 110,Dynamo Kyiv,Ukrainian Premier League (1),74,72,75,72,6,10,12800000,Balanced,6,5,Balanced,6,6,3,3,https://cdn.sofifa.net/teams/101047/120.png
 111,Bologna,Italian Serie A (1),74,75,75,72,2,4,15000000,Balanced,6,6,Long Ball,6,7,3,3,https://cdn.sofifa.net/teams/189/120.png
@@ -118,7 +118,7 @@ int_team_id,str_team_name,str_league,int_overall,int_attack,int_midfield,int_def
 117,CD Leganés,Spanish Segunda División (2),73,72,71,73,1,9,4200000,Balanced,5,6,Balanced,5,3,3,3,https://cdn.sofifa.net/teams/100888/120.png
 118,AS Saint-Étienne,French Ligue 1 (1),73,76,72,73,3,6,12500000,Balanced,4,4,Balanced,6,4,3,3,https://cdn.sofifa.net/teams/1819/120.png
 119,Santos,Campeonato Brasileiro Série A (1),73,74,72,73,8,7,6500000,Press After Possession Loss,4,7,Balanced,6,4,3,3,https://cdn.sofifa.net/teams/1053/120.png
-120,1. FC Union Berlin,German 1. Bundesliga (1),73,71,72,73,1,2,6500000,Balanced,4,5,Long Ball,6,4,3,3,https://cdn.sofifa.net/teams/18311/120.png
+120,1. FC Union Berlin,Bundesliga (1),73,71,72,73,1,2,6500000,Balanced,4,5,Long Ball,6,4,3,3,https://cdn.sofifa.net/teams/18311/120.png
 121,Rangers FC,Scottish Premiership (1),73,73,72,73,3,9,8300000,Press After Possession Loss,6,5,Balanced,6,8,3,3,https://cdn.sofifa.net/teams/86/120.png
 122,Cruz Azul,Mexican Liga MX (1),73,72,74,73,4,9,30100000,Pressure On Heavy Touch,6,6,Possession,6,4,3,3,https://cdn.sofifa.net/teams/1878/120.png
 123,Club América,Mexican Liga MX (1),73,75,72,69,9,10,15300000,Pressure On Heavy Touch,6,6,Possession,6,4,3,3,https://cdn.sofifa.net/teams/1879/120.png
@@ -141,8 +141,8 @@ int_team_id,str_team_name,str_league,int_overall,int_attack,int_midfield,int_def
 140,Independiente,Argentina Primera División  (1),72,73,71,72,8,9,12000000,Balanced,5,5,Balanced,7,5,3,3,https://cdn.sofifa.net/teams/110093/120.png
 141,Nottingham Forest,English League Championship (2),72,72,71,71,1,8,16500000,Drop Back,5,5,Fast Build Up,5,6,3,3,https://cdn.sofifa.net/teams/14/120.png
 142,AEK Athens,Greek Super League (1),72,75,73,71,5,9,12400000,Balanced,5,6,Balanced,6,3,3,3,https://cdn.sofifa.net/teams/278/120.png
-143,Hamburger SV,German 2. Bundesliga (2),72,71,70,69,3,9,18000000,Pressure On Heavy Touch,6,7,Balanced,7,5,3,3,https://cdn.sofifa.net/teams/28/120.png
-144,VfB Stuttgart,German 1. Bundesliga (1),72,73,72,72,4,3,20000000,Press After Possession Loss,6,6,Balanced,6,6,3,3,https://cdn.sofifa.net/teams/36/120.png
+143,Hamburger SV,Bundesliga (2),72,71,70,69,3,9,18000000,Pressure On Heavy Touch,6,7,Balanced,7,5,3,3,https://cdn.sofifa.net/teams/28/120.png
+144,VfB Stuttgart,Bundesliga (1),72,73,72,72,4,3,20000000,Press After Possession Loss,6,6,Balanced,6,6,3,3,https://cdn.sofifa.net/teams/36/120.png
 145,Seattle Sounders FC,USA Major League Soccer (1),72,72,73,69,4,8,32500000,Balanced,4,5,Balanced,4,6,3,3,https://cdn.sofifa.net/teams/111144/120.png
 146,FC København,Danish Superliga (1),72,72,73,71,4,10,10300000,Balanced,5,6,Balanced,5,6,3,3,https://cdn.sofifa.net/teams/819/120.png
 147,Fluminense,Campeonato Brasileiro Série A (1),72,70,73,72,4,9,4100000,Balanced,6,5,Balanced,6,4,3,3,https://cdn.sofifa.net/teams/567/120.png
@@ -170,7 +170,7 @@ int_team_id,str_team_name,str_league,int_overall,int_attack,int_midfield,int_def
 169,Stoke City,English League Championship (2),71,69,70,70,1,6,8200000,Pressure On Heavy Touch,6,4,Balanced,6,3,3,3,https://cdn.sofifa.net/teams/1806/120.png
 170,Club Athletico Paranaense,Campeonato Brasileiro Série A (1),71,71,70,71,4,5,6200000,Balanced,5,6,Balanced,5,3,3,3,https://cdn.sofifa.net/teams/1039/120.png
 171,Portland Timbers,USA Major League Soccer (1),71,71,73,69,3,7,31600000,Drop Back,6,5,Long Ball,6,4,3,3,https://cdn.sofifa.net/teams/111140/120.png
-172,Fortuna Düsseldorf,German 2. Bundesliga (2),71,73,70,71,1,10,7500000,Drop Back,4,3,Long Ball,5,3,3,3,https://cdn.sofifa.net/teams/110636/120.png
+172,Fortuna Düsseldorf,Bundesliga (2),71,73,70,71,1,10,7500000,Drop Back,4,3,Long Ball,5,3,3,3,https://cdn.sofifa.net/teams/110636/120.png
 173,Vasco da Gama,Campeonato Brasileiro Série A (1),71,71,71,73,5,5,3600000,Drop Back,8,5,Fast Build Up,8,4,3,3,https://cdn.sofifa.net/teams/569/120.png
 174,Club Atlético Lanús,Argentina Primera División  (1),71,73,70,69,7,8,7500000,Balanced,5,5,Balanced,6,6,3,3,https://cdn.sofifa.net/teams/110395/120.png
 175,Bahia,Campeonato Brasileiro Série A (1),71,69,71,71,3,4,3600000,Balanced,5,5,Possession,6,3,3,3,https://cdn.sofifa.net/teams/1598/120.png
@@ -188,7 +188,7 @@ int_team_id,str_team_name,str_league,int_overall,int_attack,int_midfield,int_def
 187,SPAL,Italian Serie A (1),71,72,69,67,1,8,4500000,Pressure On Heavy Touch,5,6,Balanced,6,7,3,3,https://cdn.sofifa.net/teams/112791/120.png
 188,Beijing Sinobo Guoan FC,Chinese Super League (1),71,78,73,67,4,7,30500000,Balanced,4,5,Balanced,4,3,3,3,https://cdn.sofifa.net/teams/111768/120.png
 189,Sporting de Charleroi,Belgian Jupiler Pro League (1),71,70,72,71,4,5,6500000,Drop Back,5,5,Fast Build Up,5,4,3,3,https://cdn.sofifa.net/teams/670/120.png
-190,DSC Arminia Bielefeld,German 1. Bundesliga (1),71,71,72,70,1,1,2300000,Balanced,5,5,Balanced,6,4,3,3,https://cdn.sofifa.net/teams/159/120.png
+190,DSC Arminia Bielefeld,Bundesliga (1),71,71,72,70,1,1,2300000,Balanced,5,5,Balanced,6,4,3,3,https://cdn.sofifa.net/teams/159/120.png
 191,Club Libertad,Paraguayan Primera División (1),71,70,69,70,2,7,3100000,Balanced,5,3,Balanced,6,6,3,3,https://cdn.sofifa.net/teams/111008/120.png
 192,Cardiff City,English League Championship (2),71,70,72,71,1,7,9000000,Balanced,4,5,Long Ball,5,5,3,3,https://cdn.sofifa.net/teams/1961/120.png
 193,Çaykur Rizespor,Turkish Süper Lig (1),71,73,70,71,2,3,2500000,Balanced,6,4,Balanced,5,3,3,3,https://cdn.sofifa.net/teams/101037/120.png
@@ -197,7 +197,7 @@ int_team_id,str_team_name,str_league,int_overall,int_attack,int_midfield,int_def
 196,Estudiantes de La Plata,Argentina Primera División  (1),71,69,72,68,7,7,5000000,Balanced,5,5,Balanced,7,4,3,3,https://cdn.sofifa.net/teams/101083/120.png
 197,Nacional de Montevideo,Uruguayan Primera División (1),71,72,71,70,6,10,5400000,Press After Possession Loss,6,7,Long Ball,7,4,3,3,https://cdn.sofifa.net/teams/111325/120.png
 198,Guangzhou Evergrande Taobao FC,Chinese Super League (1),71,74,70,69,7,10,22700000,Balanced,5,8,Balanced,5,6,3,3,https://cdn.sofifa.net/teams/111839/120.png
-199,Hannover 96,German 2. Bundesliga (2),71,71,70,71,2,8,10000000,Balanced,4,4,Long Ball,8,6,3,3,https://cdn.sofifa.net/teams/48596/120.png
+199,Hannover 96,Bundesliga (2),71,71,70,71,2,8,10000000,Balanced,4,4,Long Ball,8,6,3,3,https://cdn.sofifa.net/teams/48596/120.png
 200,Antalyaspor,Turkish Süper Lig (1),71,71,71,69,3,5,6600000,Balanced,7,5,Balanced,7,5,3,3,https://cdn.sofifa.net/teams/741/120.png
 201,Dijon FCO,French Ligue 1 (1),71,72,71,70,1,2,4600000,Drop Back,6,5,Fast Build Up,6,4,3,3,https://cdn.sofifa.net/teams/110569/120.png
 202,FC Midtjylland,Danish Superliga (1),71,70,72,72,3,10,9600000,Press After Possession Loss,4,7,Balanced,6,6,3,3,https://cdn.sofifa.net/teams/1516/120.png
@@ -234,13 +234,13 @@ int_team_id,str_team_name,str_league,int_overall,int_attack,int_midfield,int_def
 233,Bristol City,English League Championship (2),70,70,69,69,1,7,10000000,Balanced,6,4,Balanced,7,3,3,3,https://cdn.sofifa.net/teams/1919/120.png
 234,Crotone,Italian Serie A (1),70,68,69,70,1,1,4500000,Balanced,6,3,Balanced,7,3,3,3,https://cdn.sofifa.net/teams/110734/120.png
 235,MKE Ankaragücü,Turkish Süper Lig (1),70,70,69,69,3,6,2900000,Drop Back,4,5,Long Ball,7,5,3,3,https://cdn.sofifa.net/teams/101007/120.png
-236,Spezia,,70,69,69,68,1,6,2800000,Balanced,5,5,Balanced,6,3,3,3,https://cdn.sofifa.net/teams/110741/120.png
+236,Spezia,Italian Serie A (1),70,69,69,68,1,6,2800000,Balanced,5,5,Balanced,6,3,3,3,https://cdn.sofifa.net/teams/110741/120.png
 237,Kayserispor,Turkish Süper Lig (1),70,69,70,68,2,4,2300000,Balanced,7,8,Long Ball,7,5,3,3,https://cdn.sofifa.net/teams/101020/120.png
 238,Shanghai SIPG FC,Chinese Super League (1),70,75,72,65,5,2,21700000,Press After Possession Loss,5,8,Balanced,6,3,3,3,https://cdn.sofifa.net/teams/112540/120.png
 239,Swansea City,English League Championship (2),70,72,70,69,1,6,10200000,Balanced,6,5,Balanced,5,6,3,3,https://cdn.sofifa.net/teams/1960/120.png
 240,Atiker Konyaspor,Turkish Süper Lig (1),70,70,70,69,3,6,5200000,Balanced,6,7,Balanced,6,7,3,3,https://cdn.sofifa.net/teams/101033/120.png
 241,Famalicão,Portuguese Liga ZON SAGRES (1),70,68,67,70,1,4,5400000,Balanced,4,6,Balanced,7,6,3,3,https://cdn.sofifa.net/teams/112809/120.png
-242,1. FC Nürnberg,German 2. Bundesliga (2),70,69,69,69,1,8,5400000,Balanced,5,5,Balanced,5,4,3,3,https://cdn.sofifa.net/teams/1711/120.png
+242,1. FC Nürnberg,Bundesliga (2),70,69,69,69,1,8,5400000,Balanced,5,5,Balanced,5,4,3,3,https://cdn.sofifa.net/teams/1711/120.png
 243,Argentinos Juniors,Argentina Primera División  (1),70,71,68,71,5,6,2800000,Balanced,5,5,Balanced,5,3,3,3,https://cdn.sofifa.net/teams/111019/120.png
 244,DC United,USA Major League Soccer (1),70,70,70,66,3,5,27500000,Pressure On Heavy Touch,5,6,Balanced,5,4,3,3,https://cdn.sofifa.net/teams/688/120.png
 245,Denizlispor,Turkish Süper Lig (1),70,75,68,69,2,4,2800000,Balanced,4,4,Long Ball,7,3,3,3,https://cdn.sofifa.net/teams/1457/120.png
@@ -265,7 +265,7 @@ int_team_id,str_team_name,str_league,int_overall,int_attack,int_midfield,int_def
 264,ESTAC Troyes,French Ligue 2 (2),69,67,70,68,1,8,3900000,Balanced,4,5,Balanced,5,7,3,3,https://cdn.sofifa.net/teams/294/120.png
 265,Atlético de San Luis,Mexican Liga MX (1),69,68,67,68,1,2,5200000,Balanced,5,5,Balanced,5,3,3,3,https://cdn.sofifa.net/teams/112678/120.png
 266,Rosenborg BK,Norwegian Eliteserien (1),69,67,71,69,4,10,8300000,Balanced,6,5,Balanced,6,4,3,3,https://cdn.sofifa.net/teams/298/120.png
-267,SC Paderborn 07,German 2. Bundesliga (2),69,68,67,69,1,7,5000000,Pressure On Heavy Touch,5,6,Long Ball,7,5,3,3,https://cdn.sofifa.net/teams/1003007/120.png
+267,SC Paderborn 07,Bundesliga (2),69,68,67,69,1,7,5000000,Pressure On Heavy Touch,5,6,Long Ball,7,5,3,3,https://cdn.sofifa.net/teams/1003007/120.png
 268,Portimonense SC,Portuguese Liga ZON SAGRES (1),69,68,71,68,1,3,3800000,Balanced,5,5,Balanced,7,3,3,3,https://cdn.sofifa.net/teams/10031/120.png
 269,AJ Auxerre,French Ligue 2 (2),69,70,69,68,1,5,4200000,Balanced,4,6,Balanced,6,5,3,3,https://cdn.sofifa.net/teams/57/120.png
 270,Club Atlético Banfield,Argentina Primera División  (1),69,68,70,68,4,5,4100000,Balanced,5,5,Long Ball,7,5,3,3,https://cdn.sofifa.net/teams/110404/120.png
@@ -276,7 +276,7 @@ int_team_id,str_team_name,str_league,int_overall,int_attack,int_midfield,int_def
 275,Atlético Tucumán,Argentina Primera División  (1),69,69,68,69,3,6,2900000,Balanced,6,5,Long Ball,4,3,3,3,https://cdn.sofifa.net/teams/111708/120.png
 276,Al Ittihad,Saudi Abdul L. Jameel League (1),69,71,69,66,5,8,15000000,Pressure On Heavy Touch,4,6,Balanced,4,5,3,3,https://cdn.sofifa.net/teams/607/120.png
 277,Os Belenenses,Portuguese Liga ZON SAGRES (1),69,68,68,69,1,5,2200000,Balanced,4,6,Balanced,7,4,3,3,https://cdn.sofifa.net/teams/1889/120.png
-278,SV Sandhausen,German 2. Bundesliga (2),69,69,69,68,1,3,1500000,Balanced,6,4,Long Ball,5,3,3,3,https://cdn.sofifa.net/teams/110178/120.png
+278,SV Sandhausen,Bundesliga (2),69,69,69,68,1,3,1500000,Balanced,6,4,Long Ball,5,3,3,3,https://cdn.sofifa.net/teams/110178/120.png
 279,CD Nacional,Portuguese Liga ZON SAGRES (1),69,69,68,68,1,3,2100000,Balanced,5,4,Long Ball,6,4,3,3,https://cdn.sofifa.net/teams/1891/120.png
 280,FC Paços de Ferreira,Portuguese Liga ZON SAGRES (1),69,70,70,67,1,4,2000000,Balanced,5,4,Long Ball,7,4,3,3,https://cdn.sofifa.net/teams/1892/120.png
 281,Unión de Santa Fe,Argentina Primera División  (1),69,70,69,69,1,3,3000000,Balanced,7,5,Long Ball,7,3,3,3,https://cdn.sofifa.net/teams/111716/120.png
@@ -285,18 +285,18 @@ int_team_id,str_team_name,str_league,int_overall,int_attack,int_midfield,int_def
 284,Shandong Luneng TaiShan FC,Chinese Super League (1),69,74,69,68,3,6,8300000,Balanced,6,5,Balanced,6,6,3,3,https://cdn.sofifa.net/teams/111724/120.png
 285,Willem II,Holland Eredivisie (1),69,70,71,68,1,5,4800000,Balanced,6,5,Balanced,7,3,3,3,https://cdn.sofifa.net/teams/1907/120.png
 286,Vitesse,Holland Eredivisie (1),69,67,70,69,2,7,16400000,Press After Possession Loss,6,6,Balanced,6,8,3,3,https://cdn.sofifa.net/teams/1909/120.png
-287,1. FC Heidenheim 1846,German 2. Bundesliga (2),69,68,69,71,1,7,2000000,Balanced,5,5,Balanced,6,4,3,3,https://cdn.sofifa.net/teams/11123511846/120.png
+287,1. FC Heidenheim 1846,Bundesliga (2),69,68,69,71,1,7,2000000,Balanced,5,5,Balanced,6,4,3,3,https://cdn.sofifa.net/teams/11123511846/120.png
 288,KV Mechelen,Belgian Jupiler Pro League (1),69,69,70,67,4,5,4800000,Balanced,7,5,Balanced,7,3,3,3,https://cdn.sofifa.net/teams/110724/120.png
 289,LDU Quito,Ecuadorian Serie A (1),69,65,69,69,2,4,2200000,Pressure On Heavy Touch,5,5,Balanced,6,5,3,3,https://cdn.sofifa.net/teams/110986/120.png
 290,Huddersfield Town,English League Championship (2),69,67,68,69,1,5,6000000,Drop Back,6,6,Fast Build Up,6,4,3,3,https://cdn.sofifa.net/teams/1939/120.png
 291,FCSB (Steaua),Romanian Liga I (1),69,70,68,68,5,10,4000000,Drop Back,4,4,Fast Build Up,5,3,3,3,https://cdn.sofifa.net/teams/100761/120.png
 292,SV Zulte-Waregem,Belgian Jupiler Pro League (1),69,70,68,67,4,5,6000000,Balanced,5,5,Balanced,6,6,3,3,https://cdn.sofifa.net/teams/15005/120.png
 293,Santa Clara,Portuguese Liga ZON SAGRES (1),69,70,69,68,1,1,1800000,Balanced,4,4,Long Ball,6,4,3,3,https://cdn.sofifa.net/teams/1438/120.png
-294,VfL Bochum 1848,German 2. Bundesliga (2),69,69,69,70,1,7,3300000,Press After Possession Loss,4,6,Balanced,7,6,3,3,https://cdn.sofifa.net/teams/1601848/120.png
+294,VfL Bochum 1848,Bundesliga (2),69,69,69,70,1,7,3300000,Press After Possession Loss,4,6,Balanced,7,6,3,3,https://cdn.sofifa.net/teams/1601848/120.png
 295,Molde FK,Norwegian Eliteserien (1),69,70,69,67,2,10,5400000,Pressure On Heavy Touch,4,6,Balanced,5,4,3,3,https://cdn.sofifa.net/teams/417/120.png
 296,Gençlerbirliği SK,Turkish Süper Lig (1),69,73,69,70,3,6,3500000,Press After Possession Loss,5,6,Long Ball,5,4,3,3,https://cdn.sofifa.net/teams/101025/120.png
 297,Göztepe SK,Turkish Süper Lig (1),69,71,70,69,1,4,3700000,Balanced,6,5,Long Ball,6,6,3,3,https://cdn.sofifa.net/teams/101026/120.png
-298,SV Darmstadt 98,German 2. Bundesliga (2),69,70,69,68,1,6,3300000,Balanced,5,5,Balanced,6,3,3,3,https://cdn.sofifa.net/teams/11050298/120.png
+298,SV Darmstadt 98,Bundesliga (2),69,70,69,68,1,6,3300000,Balanced,5,5,Balanced,6,3,3,3,https://cdn.sofifa.net/teams/11050298/120.png
 299,New England Revolution,USA Major League Soccer (1),69,71,67,66,3,5,21600000,Press After Possession Loss,5,5,Balanced,6,5,3,3,https://cdn.sofifa.net/teams/691/120.png
 300,FC Dallas,USA Major League Soccer (1),69,74,70,67,2,6,19800000,Pressure On Heavy Touch,4,7,Balanced,7,7,3,3,https://cdn.sofifa.net/teams/695/120.png
 301,LA Galaxy,USA Major League Soccer (1),69,76,72,66,6,9,37100000,Pressure On Heavy Touch,7,5,Balanced,8,7,3,3,https://cdn.sofifa.net/teams/697/120.png
@@ -331,7 +331,7 @@ int_team_id,str_team_name,str_league,int_overall,int_attack,int_midfield,int_def
 330,San Jose Earthquakes,USA Major League Soccer (1),68,68,70,68,2,4,23600000,Press After Possession Loss,7,5,Balanced,8,3,3,3,https://cdn.sofifa.net/teams/111928/120.png
 331,Málaga CF,Spanish Segunda División (2),68,69,67,67,2,10,9900000,Balanced,4,5,Balanced,6,6,3,3,https://cdn.sofifa.net/teams/573/120.png
 332,Albacete BP,Spanish Segunda División (2),68,67,68,67,1,4,1500000,Balanced,5,4,Long Ball,6,4,3,3,https://cdn.sofifa.net/teams/1854/120.png
-333,Holstein Kiel,German 2. Bundesliga (2),68,69,70,67,1,5,1700000,Pressure On Heavy Touch,5,7,Possession,7,5,3,3,https://cdn.sofifa.net/teams/576/120.png
+333,Holstein Kiel,Bundesliga (2),68,69,70,67,1,5,1700000,Pressure On Heavy Touch,5,7,Possession,7,5,3,3,https://cdn.sofifa.net/teams/576/120.png
 334,Aberdeen,Scottish Premiership (1),68,67,68,67,2,7,2300000,Balanced,6,5,Balanced,7,4,3,3,https://cdn.sofifa.net/teams/77/120.png
 335,Orlando Pirates,South African Premier Division (1),68,70,67,67,5,10,2600000,Balanced,6,5,Balanced,6,4,3,3,https://cdn.sofifa.net/teams/110930/120.png
 336,Al Ain FC,UAE Arabian Gulf League (1),68,74,68,67,6,9,13900000,Balanced,5,5,Balanced,5,4,3,3,https://cdn.sofifa.net/teams/111701/120.png
@@ -360,7 +360,7 @@ int_team_id,str_team_name,str_league,int_overall,int_attack,int_midfield,int_def
 359,Nagoya Grampus,Japanese J. League Division 1 (1),68,69,69,67,3,5,8300000,Pressure On Heavy Touch,6,7,Balanced,5,4,3,3,https://cdn.sofifa.net/teams/112092/120.png
 360,Gamba Osaka,Japanese J. League Division 1 (1),68,70,67,67,5,8,8700000,Balanced,5,5,Balanced,5,5,3,3,https://cdn.sofifa.net/teams/112093/120.png
 361,AD Alcorcón,Spanish Segunda División (2),68,70,67,68,1,6,1600000,Balanced,6,5,Balanced,6,4,3,3,https://cdn.sofifa.net/teams/100831/120.png
-362,VfL Osnabrück,German 2. Bundesliga (2),68,67,68,68,1,4,520000,Pressure On Heavy Touch,5,6,Balanced,6,3,3,3,https://cdn.sofifa.net/teams/487/120.png
+362,VfL Osnabrück,Bundesliga (2),68,67,68,68,1,4,520000,Pressure On Heavy Touch,5,6,Balanced,6,3,3,3,https://cdn.sofifa.net/teams/487/120.png
 363,SD Ponferradina,Spanish Segunda División (2),68,69,67,68,1,6,2000000,Drop Back,5,5,Balanced,6,3,3,3,https://cdn.sofifa.net/teams/2023/120.png
 364,Real Oviedo,Spanish Segunda División (2),68,69,69,68,1,8,2000000,Pressure On Heavy Touch,4,4,Long Ball,7,3,3,3,https://cdn.sofifa.net/teams/110827/120.png
 365,BB Erzurumspor,Turkish Süper Lig (1),68,70,68,66,1,1,1700000,Balanced,7,8,Balanced,7,6,3,3,https://cdn.sofifa.net/teams/749/120.png
@@ -372,8 +372,8 @@ int_team_id,str_team_name,str_league,int_overall,int_attack,int_midfield,int_def
 371,Rosario Central,Argentina Primera División  (1),68,67,69,70,5,7,5000000,Pressure On Heavy Touch,7,5,Balanced,7,7,3,3,https://cdn.sofifa.net/teams/110580/120.png
 372,Oud-Heverlee Leuven,Belgian Jupiler Pro League (1),68,70,69,68,1,4,6000000,Drop Back,5,4,Fast Build Up,4,3,3,3,https://cdn.sofifa.net/teams/100087/120.png
 373,Vancouver Whitecaps FC,USA Major League Soccer (1),68,72,66,67,2,5,19500000,Drop Back,3,4,Fast Build Up,6,3,3,3,https://cdn.sofifa.net/teams/101112/120.png
-374,FC St. Pauli,German 2. Bundesliga (2),68,68,66,68,1,6,2900000,Balanced,6,4,Long Ball,6,3,3,3,https://cdn.sofifa.net/teams/110329/120.png
-375,FC Erzgebirge Aue,German 2. Bundesliga (2),68,70,68,68,1,3,1600000,Balanced,4,5,Long Ball,5,6,3,3,https://cdn.sofifa.net/teams/506/120.png
+374,FC St. Pauli,Bundesliga (2),68,68,66,68,1,6,2900000,Balanced,6,4,Long Ball,6,3,3,3,https://cdn.sofifa.net/teams/110329/120.png
+375,FC Erzgebirge Aue,Bundesliga (2),68,70,68,68,1,3,1600000,Balanced,4,5,Long Ball,5,6,3,3,https://cdn.sofifa.net/teams/506/120.png
 376,FC Cincinnati,USA Major League Soccer (1),68,66,69,67,1,1,24300000,Balanced,4,4,Balanced,4,3,3,3,https://cdn.sofifa.net/teams/113149/120.png
 377,Rotherham United,English League Championship (2),67,66,66,67,1,8,1800000,Balanced,4,5,Long Ball,6,3,3,3,https://cdn.sofifa.net/teams/1797/120.png
 378,Coventry City,English League Championship (2),67,67,68,67,1,6,1700000,Press After Possession Loss,5,7,Possession,7,4,3,3,https://cdn.sofifa.net/teams/1800/120.png
@@ -385,7 +385,7 @@ int_team_id,str_team_name,str_league,int_overall,int_attack,int_midfield,int_def
 384,FC Tokyo,Japanese J. League Division 1 (1),67,70,67,66,5,7,10000000,Balanced,4,4,Balanced,5,3,3,3,https://cdn.sofifa.net/teams/101150/120.png
 385,Oita Trinita,Japanese J. League Division 1 (1),67,66,66,68,1,3,4100000,Balanced,5,4,Balanced,7,3,3,3,https://cdn.sofifa.net/teams/113183/120.png
 386,Jiangsu Suning FC,Chinese Super League (1),67,76,66,64,4,7,9300000,Balanced,4,7,Balanced,5,3,3,3,https://cdn.sofifa.net/teams/112162/120.png
-387,Karlsruher SC,German 2. Bundesliga (2),67,68,66,67,1,2,800000,Balanced,4,4,Balanced,5,4,3,3,https://cdn.sofifa.net/teams/1832/120.png
+387,Karlsruher SC,Bundesliga (2),67,68,66,67,1,2,800000,Balanced,4,4,Balanced,5,4,3,3,https://cdn.sofifa.net/teams/1832/120.png
 388,Aalborg BK,Danish Superliga (1),67,69,68,66,1,7,2700000,Pressure On Heavy Touch,5,6,Balanced,4,6,3,3,https://cdn.sofifa.net/teams/820/120.png
 619,Kalmar FF,Swedish Allsvenskan (1),63,63,63,63,1,3,1600000,Drop Back,6,5,Balanced,5,3,3,3,https://cdn.sofifa.net/teams/110394/120.png
 389,Arsenal de Sarandí,Argentina Primera División  (1),67,65,69,67,5,3,2100000,Balanced,4,4,Balanced,5,3,3,3,https://cdn.sofifa.net/teams/112444/120.png
@@ -410,7 +410,7 @@ int_team_id,str_team_name,str_league,int_overall,int_attack,int_midfield,int_def
 408,Jagiellonia Białystok,Polish T-Mobile Ekstraklasa (1),67,66,67,65,3,8,2100000,Balanced,6,4,Long Ball,5,4,3,3,https://cdn.sofifa.net/teams/112541/120.png
 409,Wuhan Zall,Chinese Super League (1),67,72,65,65,1,1,4600000,Balanced,4,4,Balanced,6,3,3,3,https://cdn.sofifa.net/teams/111779/120.png
 410,Henan Jianye FC,Chinese Super League (1),67,72,66,61,2,4,4800000,Drop Back,6,5,Long Ball,3,3,3,3,https://cdn.sofifa.net/teams/110500/120.png
-411,Eintracht Braunschweig,German 2. Bundesliga (2),67,68,68,66,1,2,900000,Press After Possession Loss,6,4,Long Ball,6,5,3,3,https://cdn.sofifa.net/teams/682/120.png
+411,Eintracht Braunschweig,Bundesliga (2),67,68,68,66,1,2,900000,Press After Possession Loss,6,4,Long Ball,6,5,3,3,https://cdn.sofifa.net/teams/682/120.png
 412,KV Oostende,Belgian Jupiler Pro League (1),67,68,68,66,1,2,3900000,Press After Possession Loss,5,7,Long Ball,5,3,3,3,https://cdn.sofifa.net/teams/433/120.png
 413,AIK,Swedish Allsvenskan (1),67,67,69,67,2,9,4400000,Pressure On Heavy Touch,5,5,Balanced,6,3,3,3,https://cdn.sofifa.net/teams/110770/120.png
 414,FC Sion,Swiss Super League (1),67,69,66,65,3,7,6600000,Balanced,7,5,Balanced,6,3,3,3,https://cdn.sofifa.net/teams/702/120.png
@@ -434,7 +434,7 @@ int_team_id,str_team_name,str_league,int_overall,int_attack,int_midfield,int_def
 432,Clermont Foot 63,French Ligue 2 (2),66,64,67,67,1,4,3200000,Pressure On Heavy Touch,6,6,Possession,7,4,3,3,https://cdn.sofifa.net/teams/100634/120.png
 433,Heracles Almelo,Holland Eredivisie (1),66,67,65,66,1,5,4300000,Pressure On Heavy Touch,5,6,Balanced,5,4,3,3,https://cdn.sofifa.net/teams/101149/120.png
 434,Shimizu S-Pulse,Japanese J. League Division 1 (1),66,68,67,65,1,3,4200000,Pressure On Heavy Touch,5,6,Long Ball,7,3,3,3,https://cdn.sofifa.net/teams/543/120.png
-435,SSV Jahn Regensburg,German 2. Bundesliga (2),66,65,67,66,1,3,1000000,Press After Possession Loss,6,7,Long Ball,6,7,3,3,https://cdn.sofifa.net/teams/100646/120.png
+435,SSV Jahn Regensburg,Bundesliga (2),66,65,67,66,1,3,1000000,Press After Possession Loss,6,7,Long Ball,6,7,3,3,https://cdn.sofifa.net/teams/100646/120.png
 436,Sparta Rotterdam,Holland Eredivisie (1),66,67,67,66,1,4,5700000,Balanced,4,5,Balanced,5,4,3,3,https://cdn.sofifa.net/teams/100651/120.png
 437,VVV-Venlo,Holland Eredivisie (1),66,66,68,67,1,3,2900000,Balanced,5,4,Long Ball,6,3,3,3,https://cdn.sofifa.net/teams/10032/120.png
 438,FC Lugano,Swiss Super League (1),66,66,66,65,2,3,1900000,Balanced,5,5,Long Ball,6,4,3,3,https://cdn.sofifa.net/teams/112705/120.png
@@ -448,7 +448,7 @@ int_team_id,str_team_name,str_league,int_overall,int_attack,int_midfield,int_def
 446,Sunderland,English League One (3),66,66,67,66,2,9,5400000,Drop Back,4,3,Balanced,6,3,3,3,https://cdn.sofifa.net/teams/111723/120.png
 447,Deportivo Pasto,Colombian Liga Postobón (1),66,65,66,67,2,6,2500000,Balanced,4,5,Balanced,6,5,3,3,https://cdn.sofifa.net/teams/1905/120.png
 448,RKC Waalwijk,Holland Eredivisie (1),66,66,66,64,1,1,2700000,Balanced,5,5,Balanced,5,4,3,3,https://cdn.sofifa.net/teams/110197/120.png
-449,FC Würzburger Kickers,German 2. Bundesliga (2),66,65,65,67,1,1,725000,Balanced,7,5,Balanced,7,4,3,3,https://cdn.sofifa.net/teams/634/120.png
+449,FC Würzburger Kickers,Bundesliga (2),66,65,65,67,1,1,725000,Balanced,7,5,Balanced,7,4,3,3,https://cdn.sofifa.net/teams/634/120.png
 450,Fortuna Sittard,Holland Eredivisie (1),66,70,67,64,1,3,5700000,Balanced,5,5,Long Ball,5,3,3,3,https://cdn.sofifa.net/teams/110974/120.png
 451,Jorge Wilstermann,Liga de Fútbol Profesional Boliviano (1),66,67,64,65,3,7,2100000,Balanced,6,6,Balanced,5,3,3,3,https://cdn.sofifa.net/teams/898/120.png
 452,FC St. Gallen,Swiss Super League (1),66,65,68,64,4,6,4600000,Balanced,5,6,Balanced,3,4,3,3,https://cdn.sofifa.net/teams/112260/120.png
@@ -465,7 +465,7 @@ int_team_id,str_team_name,str_league,int_overall,int_attack,int_midfield,int_def
 463,Shenzhen FC,Chinese Super League (1),66,68,65,61,1,4,8200000,Pressure On Heavy Touch,5,5,Balanced,5,4,3,3,https://cdn.sofifa.net/teams/1951/120.png
 464,Oxford United,English League One (3),66,65,65,65,1,6,1000000,Balanced,6,6,Balanced,7,6,3,3,https://cdn.sofifa.net/teams/1952/120.png
 465,Hull City,English League One (3),66,65,66,68,1,3,4200000,Pressure On Heavy Touch,5,5,Long Ball,6,4,3,3,https://cdn.sofifa.net/teams/165/120.png
-466,SpVgg Greuther Fürth,German 2. Bundesliga (2),66,68,66,66,1,5,1900000,Pressure On Heavy Touch,4,7,Long Ball,4,6,3,3,https://cdn.sofifa.net/teams/1447/120.png
+466,SpVgg Greuther Fürth,Bundesliga (2),66,68,66,66,1,5,1900000,Pressure On Heavy Touch,4,7,Long Ball,4,6,3,3,https://cdn.sofifa.net/teams/1447/120.png
 467,SønderjyskE,Danish Superliga (1),66,65,66,64,1,4,2000000,Balanced,4,4,Long Ball,3,5,3,3,https://cdn.sofifa.net/teams/15021/120.png
 468,CE Sabadell FC,Spanish Segunda División (2),66,68,66,66,1,3,1600000,Balanced,6,5,Long Ball,7,3,3,3,https://cdn.sofifa.net/teams/700/120.png
 469,IF Elfsborg,Swedish Allsvenskan (1),66,65,66,66,1,6,2900000,Pressure On Heavy Touch,5,7,Balanced,5,7,3,3,https://cdn.sofifa.net/teams/112836/120.png

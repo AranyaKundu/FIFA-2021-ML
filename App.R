@@ -9,8 +9,10 @@ ui <- (
     # Dash board page starts
     dashboardPage(skin="green",
       # 3 comps: header, sidebar, body
-      #Header start here
-      dashboardHeader(title = tags$img(class = "title", src='logo.png')),
+      
+      # Header start here
+      dashboardHeader(title = "FIFA 2021"),#img(class="logo", src="logo.png", height = 50, align = "left")),
+      
       # Dashboard sidebar start here
       dashboardSidebar(collapsed = T,
                        sidebarMenu(
@@ -20,6 +22,8 @@ ui <- (
                                   newtab = F, tabName = "dataViz"),
                          menuItem("Team Distribution", icon = icon("fa-duotone fa-futbol", verify_fa = F),
                                   tabName = "teams", newtab = F),
+                         menuItem("Clustered Teams", newtab = F, tabName = "clustering",
+                                   icon = icon("fa-duotone fa-map", verify_fa = F)),
                          menuItem("Compare Models", icon = icon("magnifying-glass", verify_fa = F),
                                   newtab = F, tabName = "Model_comparison"),
                          menuItem("Predict Position", icon = icon("fa-duotone fa-chart-simple", 
@@ -28,6 +32,8 @@ ui <- (
                                   newtab = F, tabName = "Player"),
                          menuItem("Dream Team", icon = icon("fa-solid fa-people-group", verify_fa = F),
                                   newtab = F, tabName = "bestTeam"),
+                         menuItem("My Team on Pitch", tabName = "mychoiceTeam", newtab = F, 
+                                  icon = icon("fa-solid fa-users", verify_fa = F)),
                          menuItem("Development Archive", icon = icon("archive", verify_fa = F),
                                   newtab = F, tabName = "archives")
                        )
@@ -38,8 +44,11 @@ ui <- (
           # Home Page
           tabItem(tabName = "homeTab",
                   div(class="container", tags$img(src = "fifa-21.jpg"),
-                      actionButton("homeButton", class = "btn", label = "Play"))
+                      actionButton("homeButton", class = "btn", label = "Play"),
+                      p(em(HTML("&copy;"), "Developed by Aranya Kundu"))
+                )
           ),
+          
           # Data Set Page
           tabItem(tabName = "dataset",
                   fluidRow(
@@ -49,8 +58,9 @@ ui <- (
                     ),
                     column(3, actionButton("display", label = "Display", class = "bttn button-1"))
                   ),
-                  div(class="container", DTOutput("mydataset"))
+                  div(class="container", DTOutput("mydataset") %>% withSpinner())
           ),
+          
           # Data Visualization - Players
           tabItem(tabName = "dataViz",
                   fluidRow(
@@ -66,7 +76,7 @@ ui <- (
                            actionButton("doAction", label = "Visualize", class = "bttn button-2"))
                   ),
                   fluidRow(
-                    column(12, plotOutput("viz_Plot"), div(style = "height: auto, max-height: 100%"))
+                    column(12, withSpinner(plotOutput("viz_Plot")))
                   )
           ),
           
@@ -83,12 +93,23 @@ ui <- (
                     column(3, actionButton("showPlot", label = "Display", class = "bttn button-1"))
                   ),
                   fluidRow(
-                    column(12, plotOutput("coolplot1"), div(style = "min-height: 800px, width: auto,
-                                                            max-width: 100%"))
+                    column(12, withSpinner(plotOutput("coolplot1")))
                   )
           ),
           
-          # ML Models Page //Working decently
+          # Clustering Heat map
+          tabItem(tabName = "clustering",
+                  fluidRow(
+                    column(3, numericInput("noclusters", label = "Number of Clusters", 
+                                           min = 5, max = 50, value = 10, step = 1)),
+                    column(3, actionButton("heatmap", label = "Visualize", class = "btn btn-info"))
+                  ),
+                  fluidRow(
+                    column(width = 12, withSpinner(plotOutput("heatwave")))
+                  )
+          ),
+          
+          # ML Models Page 
           tabItem(tabName = "Model_comparison",
                   fluidRow(
                     column(3,
@@ -116,10 +137,9 @@ ui <- (
                     column(2),
                     column(5, DTOutput("modelYInput"))
                   )
-                  
-                  
           ),
-          # Position ML Page //cannot display confusion matrix
+          
+          # Position ML Page 
           tabItem(tabName = "position",
                   fluidRow(
                     column(4,
@@ -133,57 +153,77 @@ ui <- (
                     column(6, DTOutput("predictedPosition"))
                   )
           ),
-          # Player details Page 
+          
+          # Player details Page
           tabItem(tabName = "Player", 
-                  fluidRow(div(style = "height: 100px, top = 0"),
-                    column(4, selectizeInput("PlayerX", "Select player - 1", 
-                                          choices = NULL, multiple = F
-                                          )),
-                    column(2, actionButton("my_player_1", label = "Display", class = "button-2")),
-                    column(4, selectizeInput("PlayerY", "Select player - 2", 
-                                          choices = NULL, multiple = F
-                                          )),
-                    column(2, actionButton("my_player_2", label = "Display", class = "button-2"))
+                  fluidRow(
+                    column(6,
+                           column(8, selectizeInput("PlayerX", "Select player - 1", 
+                                                    choices = NULL, multiple = F
+                           )),
+                           column(4, actionButton("my_player_1", label = "Display", class = "button-2"))
+                    ),
+                    column(6,
+                           column(8, selectizeInput("PlayerY", "Select player - 2", 
+                                                    choices = NULL, multiple = F
+                           )),
+                           column(4, actionButton("my_player_2", label = "Display", class = "button-2"))
+                    )
                   ),
-                  fluidRow(column(6, 
-                                  column(3, uiOutput("playerDetails")),
-                                  column(3,
-                                  imageOutput("playerXImg"))),
-                           column(6, imageOutput("playerYImg"))
-                           ),
+                  hr(),
+                  fluidRow(
+                    column(6, 
+                           column(10, tableOutput("player1Details")),
+                           column(2, imageOutput("playerXImg"))),
+                    column(6,
+                           column(10, tableOutput("player2Details")),
+                           column(2, imageOutput("playerYImg"))
+                    ),
+                  ),
+                  hr(),
                   fluidRow(
                     # need to adjust row height
                     column(6, DTOutput("playerXDetails")),
                     column(6, DTOutput("playerYDetails"))
                   )
           ),
+          
           # Optimized Team Tab
           tabItem(tabName = "bestTeam", 
                   fluidRow(
                     column(width = 2, offset = 1,
-                           numericInput("GK_count", "GoalKeeper", min = 1, max = 7, value = 1, step = 1)),
+                           numericInput("GK_count", "GoalKeeper", min = 1, max = 7, value = 2, step = 1)),
                     column(2, 
-                           numericInput("RB_count", "Right Back", min = 1, max = 7, value = 1, step = 1)),
+                           numericInput("RB_count", "Right Back", min = 1, max = 7, value = 2, step = 1)),
                     column(2, 
-                           numericInput("LB_count", "Left Back", min = 1, max = 7, value = 1, step = 1)),
+                           numericInput("LB_count", "Left Back", min = 1, max = 7, value = 2, step = 1)),
                     column(2, 
-                           numericInput("CB_count", "Center Back", min = 1, max = 7, value = 1, step = 1)),
+                           numericInput("CB_count", "Center Back", min = 1, max = 7, value = 2, step = 1)),
                     column(2, 
-                           numericInput("LM_count", "Left Mid", min = 1, max = 7, value = 1, step = 1))
+                           numericInput("LM_count", "Left Mid", min = 1, max = 7, value = 2, step = 1))
                   ),
                   fluidRow(
                     column(width = 2, offset = 1, 
-                           numericInput("RM_count", "Right Mid", min = 1, max = 7, value = 1, step = 1)),
+                           numericInput("RM_count", "Right Mid", min = 1, max = 7, value = 2, step = 1)),
                     column(2, 
-                           numericInput("CM_count", "Central Midfield", min = 1, max = 7, value = 1, step = 1)),
+                           numericInput("CM_count", "Central Midfield", 
+                                        min = 1, max = 7, value = 2, step = 1)),
                     column(2, 
-                           numericInput("FW_count", "Forward", min = 1, max = 7, value = 1, step = 1)),
+                           numericInput("FW_count", "Forward", min = 1, max = 7, value = 2, step = 1)),
                     column(2, 
                            numericInput("size", "Team Size", min = 11, max = 40, value = 14, step = 1)),
                     column(2, actionButton("showTeam", label = "Show", class = "btn button-2"))
                   ),
-                  fluidRow(DTOutput("my_dream_team"))
+                  fluidRow(withSpinner(DTOutput("my_dream_team")))
           ),
+          
+          # Soccer Pitch
+          tabItem(tabName = "mychoiceTeam",
+                  fluidRow(
+                    column(12, plotOutput("my_choice_team") %>% withSpinner())
+                  )
+              ),
+          
           # ML Archives Tab Code
           tabItem(tabName = "archives",
                   fluidRow(
@@ -194,9 +234,7 @@ ui <- (
                     column(2, actionButton("showModel", label = "Compute", class = "button-1"))
                   ),
                   fluidRow(
-                    column(1),
-                    column(10, tableOutput("cfmtbl")),
-                    column(1)
+                    column(10, tableOutput("cfmtbl"))
                   )
             )
         ),
@@ -205,10 +243,7 @@ ui <- (
         bsModal(id="defVideo", title = "EA Sports", trigger = "homeButton", size="large",
                 tags$iframe(src="ea_video.mp4", 
                             frameborder="0", 
-                            allow="autoplay; encrypted-media; picture-in-picture", class = "homeVideo"),
-                tags$head(tags$style("#defVideo{position: absolute; width: 100%; overflow: hidden;
-                                     height: 315, max-width: 400}
-                                       #defVideo .modal-footer{display:none}"))
+                            allow="autoplay; encrypted-media; picture-in-picture", class = "homeVideo")
         ),
         tags$head(
           tags$script(src = "sidebar.js"),
@@ -247,15 +282,22 @@ server <- (
       my_plot_func(data = pmdf, x_axis = input$selectX, y_axis = input$selectY)
     })
     
-    output$viz_Plot <- renderPlot(data_viz_fifa())
+    output$viz_Plot <- renderPlot(data_viz_fifa(), width = "auto", height = 700)
     
-    # Teams Tab // to check
+    # Teams Tab
     cool_plot <- eventReactive(input$showPlot, {
-      # browser()
       comp_teams(league_name = input$selectLeague, x_axis = input$axis_x, y_axis = input$axis_y)
     })
     
-    output$coolplot1 <- renderPlot(cool_plot())
+    output$coolplot1 <- renderPlot(cool_plot(), width = "auto", height = 700)
+    
+    # Heat map Teams
+    
+    heatmapplot <- eventReactive(input$heatmap, {
+      clustering(input$noclusters)
+    })
+    
+    output$heatwave <- renderPlot(heatmapplot(), width = "auto", height = 700)
     
     # Code for positions tab
     updateSelectizeInput(session, 'player', choices = df$Name, server = TRUE)
@@ -266,13 +308,13 @@ server <- (
     
     output$predictedPosition <- renderDT(playerPosition())
     
-    # code for Compare models Tab //not done yet (partially working)
+    # code for Compare models Tab 
     modelXOutput <- eventReactive(input$my_model_1, {
-      my_model(data = pmdf, model_type = input$ModelX)
+      my_model(model_type = input$ModelX)
     })
     
     modelYOutput <- eventReactive(input$my_model_2, {
-      my_model(data = pmdf, model_type = input$ModelY)
+      my_model(model_type = input$ModelY)
     })
     
     output$modelXInput <- renderDT(modelXOutput())
@@ -282,6 +324,18 @@ server <- (
     updateSelectizeInput(session, 'PlayerX', choices = players_df$str_player_name, server = TRUE)
     updateSelectizeInput(session, 'PlayerY', choices = players_df$str_player_name, 
                          selected = "Cristiano Ronaldo dos Santos Aveiro", server = TRUE)
+    
+    dataInput <- reactive({
+      players_df[players_df$str_player_name == input$PlayerX, c(55:56)]
+    })
+    output$player1Details <- renderTable(dataInput())
+    
+    dataInput2 <- reactive({
+      players_df[players_df$str_player_name == input$PlayerY, c(55:56)]
+    })
+    output$player2Details <- renderTable(dataInput2())
+    
+    
     playerXphoto <- eventReactive(input$my_player_1, {
       player_display(input$PlayerX)
     })
@@ -301,14 +355,14 @@ server <- (
     output$playerXDetails <- renderDT(ready_player(data = players_df, player_Name = input$PlayerX))
     output$playerYDetails <- renderDT(ready_player(data = players_df, player_Name = input$PlayerY))
     
-    # Code for improved Model tab // Not working -confusion matrix cannot be displayed
+    # Code for improved Model tab 
     modelImprovedOutput <- eventReactive(input$my_model_2, {
       improved_model_analysis(position = input$positionX, model = input$ModelX)
     })
     
     output$modelAnalysis <- renderDT(modelImprovedOutput())
     
-    # bestTeam Tab Code //Fully working (need to check with new dataset)
+    # best Team Tab Code 
     
     showbestTeam <- eventReactive(input$showTeam, {
       optimal_team(GK_count = input$GK_count, RB_count = input$RB_count, LB_count = input$LB_count, 
@@ -318,20 +372,21 @@ server <- (
     
     output$my_dream_team <- renderDT(showbestTeam())
     
+    # Pitch best Team
+    
+    output$my_choice_team <- renderPlot(choiceTeam(), width = "auto", height = 725)
+    
     # Development Archive Tab Code
     
     modelOut <- eventReactive(input$showModel, {
       archived_models(model_type = input$modelList)
     })
-    output$cfmtbl <- renderTable(modelOut()) # Some items of .SDcols are not column names: [BP]
-    # output$cfmoverall <- renderDataTable({
-    #   y <- req(modelOut())
-    #   datatable(y$overall)
-    # })
+    output$cfmtbl <- renderTable(modelOut()) 
+
   })
 )
 
-shinyApp(ui = ui, server = server, display.mode = "showcase")
+shinyApp(ui = ui, server = server)
 
 
 

@@ -10,17 +10,17 @@
 # 8. LM/LW = 0 - 1
 # 9. CM = 1 - 2
 # 10. FW = 1 - 3
-library(dplyr)
 library(ROI)
 library(ROI.plugin.glpk)
 library(ompr)
 library(ompr.roi)
 
-main_players <- read.csv("D:/Coursework/Mod-2/Machine Learning/Project/MLApp/players.csv",
-                            stringsAsFactors = TRUE, header = TRUE,
-                            na.strings = c("", " ", "NA"))
+main_players <- read.csv("D:/Coursework/Mod-2/Machine Learning/Project/New Folder/players.csv",
+                         stringsAsFactors = TRUE, header = TRUE,
+                         na.strings = c("", " ", "NA"))
 
 imp_df <- main_players[, c(2, 8, 9, 11)]
+
 imp_df$dummyGK <- ifelse(imp_df$str_best_position == 'GK', 1, 0)
 imp_df$dummyRB <- ifelse(imp_df$str_best_position == 'RB', 1, 0)
 imp_df$dummyCB <- ifelse(imp_df$str_best_position == 'CB', 1, 0)
@@ -54,11 +54,12 @@ optimal_team <- function(GK_count, RB_count, LB_count, CB_count, RM_count, CM_co
   solved <- solve_model(model, with_ROI("glpk"))
   dream1 <- imp_df[solved$solution>0, ]
   dream_team <- main_players[which(main_players$str_player_name %in% dream1$str_player_name), 
-                             c(2:6, 8, 15:17, 21:23)]
+                             c(2, 4:6, 8:9, 11:12, 44)]
   return (dream_team)
 }
 
-teams <- read.csv("teams.csv", header = T)[, c(2:7, 10, 14)]
+teams <- read.csv(
+  "D:/Coursework/Mod-2/Machine Learning/Project/New Folder/teams.csv", header = T)[, c(2:7, 10, 14)]
 teams_df <- function() {
   teams %>% rename("Team Name" = "str_team_name", 
                    "League" = "str_league",
