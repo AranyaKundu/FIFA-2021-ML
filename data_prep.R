@@ -109,7 +109,6 @@ save(test_dataset, file = "test_dataset.rda")
 
 save(train_dataset, file = "train_dataset.rda")
 
-load("train_dataset.rda")
 
 
 # For the Potential.R file

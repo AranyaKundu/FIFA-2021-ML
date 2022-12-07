@@ -15,12 +15,6 @@ main_df_players$W.F <- gsub("★","", as.character(main_df_players$W.F)) |> as.n
 main_df_players$SM <- gsub("★","", as.character(main_df_players$SM)) |> as.numeric()
 main_df_players$IR <- gsub("★","", as.character(main_df_players$IR)) |> as.numeric()
 
-# data filtering
-modified_df <- main_df_players[c(2, 4, 8, 16:17, 25:54, 56:65, 68:78)]
-
-# Data Imputation
-nan_cols <- names(which(colSums(is.na(modified_df))>0))
-
 # functions and other computations
 
 load("test_data.rda")
@@ -31,25 +25,26 @@ load("train_data.rda")
 
 archived_models <- function(model_type){
   if (model_type == "Single Decision Tree"){
-    # Single Decision Tree model on unclustered data
-    set.seed(123456)
-    obervations <- nrow(modified_df)
-    names(modified_df)[3] <- "Position"
-    split_data <- splitstackshape::stratified(modified_df[, -1], group = "Position",
-                                              size = 0.25, bothSets = T)
-    test_data <- split_data[[1]]
-    train_data <- split_data[[2]]
+    load("test_data.rda") # Load Train data set (imputed)
+    load("train_data.rda") # Load Test data set (imputed)
+    names(train_data)[2] <- "Position" # Rename column in train data
+    names(test_data)[2] <- "Position" # Rename column in test data
+    train_data <- train_data[, -1]
+    test_data <- test_data[, -1]
+
   } else if (model_type == "Clustered Single Decision Tree") {
+    load("test_data.rda")
+    load("train_data.rda")
     set.seed(123456)
     # Clustering the data set
-    cmdf <- modified_df |> 
+    cmdf <- rbind.data.frame(train_data, test_data) |> 
       mutate(Position = ifelse(BP %in% c("CAM", "CDM", "CM", "RM", "LM"), "MID",
                                ifelse(BP %in% c("LWB", "LB", "RWB", "RB", "CB"), "DEF", 
                                       ifelse(BP %in% c("CF", "ST", "RW", "LW"), "FWD", "GK"))
       ), .after = "BP")
     # Data partitioning on the clustered data set
     t_obs <- nrow(cmdf)
-    split_cdf <- splitstackshape::stratified(cmdf[, -c(1, 3)], group = "Position",
+    split_cdf <- splitstackshape::stratified(cmdf[, -c(1, 2)], group = "Position",
                                              size = 0.25, bothSets = T)
     test_data <- split_cdf[[1]]
     train_data <- split_cdf[[2]]
@@ -60,7 +55,7 @@ archived_models <- function(model_type){
   tree_preds <- predict(tree_model, test_data, type = "class")
   t <- table(tree_preds, test_data$Position)
   cfm <- confusionMatrix(t, positive = "Yes")
-  cfmtable <- cfm$table |> as.matrix()
+  cfmtable <- cfm$table
   return (cfmtable)
 }
 
@@ -71,17 +66,90 @@ load("test_fmdf.rda")
 
 final_models <- function(model_choice){
   if (model_choice == "Decision Tree"){
-    tree_model_3 <- rpart(Position~., data = train_fmdf)
-    tree_preds_3 <- predict(tree_model_3, newdata = test_fmdf, type = "class")
-    t3 <- table(tree_preds_3, test_fmdf$Position)
-    cfm_1 <- confusionMatrix(t3, positive = "Yes") # Up next
-    return (cfm_1)
-  }
-  else if(model_choice == "Extreme Gradient Boost"){
-    return (paste("Model under construction!"))
+    load("train_fmdf.rda")
+    load("test_fmdf.rda")
+    
+    # Train the decision tree model
+    tree_model_3 <- rpart(Position~., data = train_fmdf[, -1])
+    
+    # Make predictions on the test data
+    tree_preds_3 <- predict(tree_model_3, newdata = test_fmdf[, -1], type = "prob")
+    
+    # Calculate the predicted probabilities for each class
+    predicted_probs <- predict(tree_model_3, newdata = test_fmdf, type = "prob")
+    test_labels_numeric <- factor(test_fmdf$Position) |> as.numeric()
+    
+    predicted_probs_matrix <- apply(predicted_probs, 1, which.max)
+    
+    gk_act <- factor(ifelse(test_fmdf$Position == "GK", "GK", "nonGK")) |> as.numeric()
+    gk_pred <- factor(ifelse(tree_preds_3 == "GK", "GK", "nonGK")) |> as.numeric()
+
+    roc_gk <- roc(gk_act, gk_pred)
+    plot.roc(roc_gk, print.auc = T, col = "red", lwd = 4
+             , print.auc.x = 0.2, print.auc.y = 0.35, print.auc.col = "red")
+    
+    cdf_act <- factor(ifelse(test_fmdf$Position == "CENTRAL DEF", "CENTRAL DEF", "non CENTRAL DEF")) |> 
+      as.numeric()
+    cdf_pred <- factor(ifelse(tree_preds_3 == "CENTRAL DEF", "CENTRAL DEF", "non CENTRAL DEF")) |> 
+      as.numeric()
+    roc_cdf <- roc(cdf_act, cdf_pred)
+    plot.roc(roc_cdf, print.auc = T, col ="blue", add = TRUE, lwd = 4
+             , print.auc.x = 0.2, print.auc.y = 0.3, print.auc.col = "blue")
+    
+    cm_act <- factor(ifelse(test_fmdf$Position == "CENTRAL MID", "CENTRAL MID", "non CENTRAL MID")) |>
+      as.numeric()
+    cm_pred <- factor(ifelse(tree_preds_3 == "CENTRAL MID", "CENTRAL MID", "non CENTRAL MID")) |>
+      as.numeric()
+    roc_cm <- roc(cm_act, cm_pred)
+    plot.roc(roc_cm, print.auc = T, col = "turquoise2", add = T, lwd = 4
+             , print.auc.x = 0.2, print.auc.y = 0.4, print.auc.col = "turquoise2")
+    
+    ldf_act <- factor(ifelse(test_fmdf$Position == "LEFT DEF", "LEFT DEF", "non LEFT DEF")) |>
+      as.numeric()
+    ldf_pred <- factor(ifelse(tree_preds_3 == "LEFT DEF", "LEFT DEF", "non LEFT DEF")) |>
+      as.numeric()
+    roc_ldf <- roc(ldf_act, ldf_pred)
+    plot.roc(roc_ldf, print.auc = T, col = "green", add = T, lwd = 4
+             , print.auc.x = 0.2, print.auc.y = 0.45, print.auc.col = "green")
+    
+    fwd_act <- factor(ifelse(test_fmdf$Position == "FWD", "FWD", "non FWD")) |>
+      as.numeric()
+    fwd_pred <- factor(ifelse(tree_preds_3 == "FWD", "FWD", "non FWD")) |>
+      as.numeric()
+    roc_fwd <- roc(fwd_act, fwd_pred)
+    plot.roc(roc_fwd, print.auc = T, col = "purple", add = T, lwd = 4
+             , print.auc.x = 0.2, print.auc.y = 0.5, print.auc.col = "purple")
+    
+    lm_act <- factor(ifelse(test_fmdf$Position == "LEFT MID", "LEFT MID", "non LEFT MID")) |>
+      as.numeric()
+    lm_pred <- factor(ifelse(tree_preds_3 == "LEFT MID", "LEFT MID", "non LEFT MID")) |>
+      as.numeric()
+    roc_lm <- roc(lm_act, lm_pred)
+    plot.roc(roc_lm, print.auc = T, col = "orange", add = T, lwd = 4
+             , print.auc.x = 0.2, print.auc.y = 0.55, print.auc.col = "orange")
+    
+    rm_act <- factor(ifelse(test_fmdf$Position == "RIGHT MID", "RIGHT MID", "non RIGHT MID")) |>
+      as.numeric()
+    rm_pred <- factor(ifelse(tree_preds_3 == "RIGHT MID", "RIGHT MID", "non RIGHT MID")) |>
+      as.numeric()
+    roc_rm <- roc(rm_act, rm_pred)
+    auc_plot <- plot.roc(roc_rm, print.auc = T, col = "violetred", add = T, lwd = 4
+                         , print.auc.x = 0.2, print.auc.y = 0.6, print.auc.col = "violetred")
+    legend("bottomright",
+      legend = c("CENTRAL DEF", "CENTRAL MID", "FWD", "GK", "LEFT DEF", 
+                      "LEFT MID", "RIGHT MID"),
+      col = c("blue", "turquoise2", "purple", "red", "green", "orange", "violetred"),
+      lty = 1:1, xjust = 1, yjust = 1,
+           )
+    
+    return (auc_plot)
   }
   else if (model_choice == "Bootstrap Aggregation"){
-    return (paste("Model under construction!"))
+    bag_mod <- randomForest(factor(Position) ~ .,
+                            data = na.omit(train_fmdf[, -1]),
+                            ntree = 150,
+                            mtry = 54
+    )
   }
 }
 
@@ -94,16 +162,6 @@ mod_preds_test <- predict(mod_dec_tree, newdata = test_fmdf[,-1], type="class") 
 mod_pred_train <- predict(mod_dec_tree, newdata = train_fmdf[, -1], type="class") |> as.data.frame()
 
 
-# Bagging Model
-
-# set.seed(258506)
-# bag_mod <- randomForest("Position" ~ ., 
-#                         data = mod_train_fmdf[, -1],
-#                         ntree = 150,
-#                         mtry = 55
-# )
-# 
-# bag_mod
 cmb_df <- add_column(train_fmdf[, c(1:3, 5)], mod_pred_train, .after = "Position")
 cmb_df2 <- add_column(test_fmdf[, c(1:3, 5)], mod_preds_test, .after = "Position")
 names(cmb_df)[4] <- "Predicted"
@@ -113,6 +171,18 @@ combined <- rbind(cmb_df, cmb_df2)
 # Predict player position
 predict_position <- function(player_Nm){
   output <- combined %>% filter(Name == player_Nm) |> t()
-  names(output)[1] <- "Details"
+  names(output)[2] <- "Details"
   return (output)
 }
+
+
+# Bagging Model
+
+set.seed(258506)
+bag_mod <- randomForest(factor(Position) ~ .,
+                        data = na.omit(train_fmdf[, -1]),
+                        ntree = 150,
+                        mtry = 54
+)
+
+bag_mod

@@ -17,8 +17,16 @@ library(DT)
 library(caret)
 library(rpart)
 library(randomForest)
-
-
+library(xgboost)
+library(xgboostExplainer)
+library(pROC)
+library(gganimate)
+library(ROI)
+library(ROI.plugin.glpk)
+library(ompr)
+library(ompr.roi)
+library(ggimage) # Load ggimage
+library(ggsoccer) # Load ggsoccer for the soccer pitch
 # functions and other computations
 
 # read data from csv
@@ -77,6 +85,12 @@ player_display <- function(player_Name){
   return (photo_1)
 }
 
+
+# player_display <- function(player_Name){
+#   player_photo <- df %>% filter(Name == player_Name) %>% select(Player.Photo)
+#   x <- player_photo[1, 1] |> as.character()
+#   return (x)
+# }
 
 ####################
 ##                ##
@@ -147,26 +161,4 @@ my_model <- function(model_type){
     dt <- cbind(Coefficients = rownames(nz_coeffs), nz_coeffs)
     return (dt)
   }
-  else if (model_type == 'Bootstrap Aggregation'){
-   return("None.") 
-  }
-  else {return (paste("Model under construction!"))}
 }
-
-# # Categorize Players and Apply ML Models (Performance Improvement by Clustering)
-# 
-# MID <- pmdf |> filter(BP %in% c("CAM", "CDM", "CM", "RM", "LM"))
-# DEF <- pmdf |> filter(BP %in% c("LWB", "LB", "RWB", "RB", "CB"))
-# GK <- pmdf |> filter(BP %in% "GK")
-# FWD <- pmdf |> filter(BP %in% c("CF", "ST", "RW", "LW"))
-# 
-# improved_model_analysis <- function(position, model) {
-#   total_data <- position
-#   split_dataset <- splitstackshape::stratified(total_data,
-#                                                group = 'BP', 
-#                                                size = 0.2, bothSets = TRUE)
-#   test_data <- split_dataset[[1]]
-#   train_data <- split_dataset[[2]]
-#   
-#   my_model(data = total_data, model_type = model)
-# }

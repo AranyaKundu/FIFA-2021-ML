@@ -1,8 +1,7 @@
 # clustering by models
 library(tidyr) # Load tidyr
 library(cluster) # Load cluster
-library(ggimage) # Load ggimage
-library(ggsoccer) # Load ggsoccer for the soccer pitch
+
 
 
 teams <- read.csv("D:/Coursework/Mod-2/Machine Learning/Project/New folder/teams.csv",
@@ -80,28 +79,4 @@ clustering <- function(no_of_centers){
 #   }
 # }
 
-# Pitch
 
-choiceTeam <- function(){
-  players <- players_df[, c(2, 4, 7:9, 57)]
-  z <- players_df[c(5, 7, 1, 4, 28, 68, 33, 11, 65, 31, 3), c(2, 57)]
-  team_coords <- data.frame(x = c(25, 17, 25, 50, 43, 50, 75, 80, 80, 75, 95),
-                            y = c(19, 52, 85, 19, 52, 85, 15, 40, 65, 90, 50),
-                            photo = z$str_player_image_url)
-  
-  # dims <- list(length = 100, width = 100, penalty_box_length = 16,
-  #                   penalty_box_width = 60, six_yard_box_length = 3, six_yard_box_width = 20,
-  #                   penalty_spot_distance = 4, goal_width = 16, origin_x = 0, origin_y = 0)
-
-  
-  pitch <- ggplot(team_coords) + # set data for the plot
-    annotate_pitch(colour = "white", # set colour of pitch
-                   fill = "springgreen4", #set fill pitch colour
-                   limits = F) + # Set pitch limits to False
-    geom_image(aes(x = x, y = y), # Set x and y axis co-ordinates
-      image = team_coords$photo, asp = 3/2) + # Set images of players to be printed
-    theme_pitch() + # Set pitch theme
-    theme(panel.background = element_rect(fill = "springgreen3")) + # ste pitch background fill
-    ggtitle("Formation: 4-3-3") # Mention title for the plot
-  return (pitch)
-}
