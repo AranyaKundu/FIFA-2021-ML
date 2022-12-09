@@ -1,0 +1,102 @@
+/*Page background*/
+.content-wrapper {
+    background-color: #fffff0;
+    }
+/* logo */
+.main-header .logo {
+    background-color: #ff456a;
+    }
+/*Other Buttons*/
+.bttn{
+  align-items: center;
+  display: flex;
+  cursor: pointer;
+  white-space: nowrap;
+  max-width: 100%;
+  justify-content: center;
+  border-radius: 8em;
+  font: 16px sans-serif;
+  line-height: 1em;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  padding: 12px
+}
+
+.button-2{
+  background-color: #000;
+  color: #fff;
+}
+
+.button-1 {
+  background-color: #5cb85c;
+  color: #FFFFFF;
+}
+
+.button-1:active,
+.button-1:hover {
+  outline: 0;
+}
+
+.button-2 :hover{
+  background-color: #fff;
+  color: #000
+}
+
+@media (min-width: 768px) {
+  .button-1, .button-2 {
+    font-size: 24px;
+    min-width: 196px;
+  }
+}
+
+/* Container needed to position the button. Adjust the width as needed */
+.container {
+  position: relative;
+  width: 100%;
+}
+
+/* Make the image responsive */
+.container img {
+  max-width: 100%;
+  width: 100%;
+  height: auto;
+}
+
+/* Style the button and place it in the middle of the container/image */
+.container .btn {
+  position: absolute;
+  top: 80%;
+  left: 80%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  background-color: #fff;
+  color: #000;
+  font-size: 16px;
+  padding: 12px 24px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.container .btn:hover {
+  background-color: black;
+  color:#fff
+}
+
+.homeVideo{
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+p{
+  text-align:right; 
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-size: 16px;
+}
+
+.card{
+  text-align: right;
+  background-color: lavender;
+}
