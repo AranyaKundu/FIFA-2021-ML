@@ -1,10 +1,6 @@
 # clustering by models
-library(tidyr) # Load tidyr
-library(cluster) # Load cluster
 
-
-
-teams <- read.csv("D:/Coursework/Mod-2/Machine Learning/Project/New folder/teams.csv",
+teams <- read.csv("./teams.csv",
                   stringsAsFactors = T, header = T, na.strings = c("", " ", "NA"))
 
 # compare teams in a league
@@ -20,6 +16,7 @@ comp_teams <- function(league_name, x_axis, y_axis){
                       aes(x = var_1, y = var_2)) + 
     geom_point(alpha = 0.3) + 
     geom_image(image = plot_data$link_logo, asp = 16/9) + 
+    theme_minimal() +
     labs(x = glue::glue("Team Rating {x_axis}"), y = glue::glue("Team Rating {y_axis}"),
          title = glue::glue("{y_axis} Team Rating vs. {x_axis} Rating"),
          subtitle = glue::glue("{league_name}")) 

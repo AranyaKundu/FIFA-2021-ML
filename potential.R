@@ -1,10 +1,10 @@
 #All required libraries are loaded in ml_project.R
 # read data from csv
-sub_df_players <- read.csv("D:/Coursework/Mod-2/Machine Learning/Project/MLApp/players.csv",
+sub_df_players <- read.csv("./players.csv",
                            stringsAsFactors = TRUE, header = TRUE,
                            na.strings = c("", " ", "NA"))
 
-main_df_players <- read.csv("D:/Coursework/Mod-2/Machine Learning/Project/MLApp/fifa21.csv",
+main_df_players <- read.csv("./fifa21.csv",
                             stringsAsFactors = TRUE, header = TRUE,
                             na.strings = c("", " ", "NA"))
 
@@ -17,8 +17,8 @@ main_df_players$IR <- gsub("★","", as.character(main_df_players$IR)) |> as.num
 
 # functions and other computations
 
-load("test_data.rda")
-load("train_data.rda")
+# load("test_data.rda")
+# load("train_data.rda")
 
 # Fit model to guess best playing position
 # archived Models
@@ -73,14 +73,14 @@ final_models <- function(model_choice){
     tree_model_3 <- rpart(Position~., data = train_fmdf[, -1])
     
     # Make predictions on the test data
-    tree_preds_3 <- predict(tree_model_3, newdata = test_fmdf[, -1], type = "prob")
+    tree_preds_3 <- predict(tree_model_3, newdata = test_fmdf[, -1], type = "class")
     
     # Calculate the predicted probabilities for each class
-    predicted_probs <- predict(tree_model_3, newdata = test_fmdf, type = "prob")
+    predicted_probs <- predict(tree_model_3, newdata = test_fmdf[, -1], type = "prob")
     test_labels_numeric <- factor(test_fmdf$Position) |> as.numeric()
     
     predicted_probs_matrix <- apply(predicted_probs, 1, which.max)
-    
+    # Plot roc for GK
     gk_act <- factor(ifelse(test_fmdf$Position == "GK", "GK", "nonGK")) |> as.numeric()
     gk_pred <- factor(ifelse(tree_preds_3 == "GK", "GK", "nonGK")) |> as.numeric()
 
@@ -88,6 +88,7 @@ final_models <- function(model_choice){
     plot.roc(roc_gk, print.auc = T, col = "red", lwd = 4
              , print.auc.x = 0.2, print.auc.y = 0.35, print.auc.col = "red")
     
+    # Plot roc for Central Defenders
     cdf_act <- factor(ifelse(test_fmdf$Position == "CENTRAL DEF", "CENTRAL DEF", "non CENTRAL DEF")) |> 
       as.numeric()
     cdf_pred <- factor(ifelse(tree_preds_3 == "CENTRAL DEF", "CENTRAL DEF", "non CENTRAL DEF")) |> 
@@ -96,6 +97,7 @@ final_models <- function(model_choice){
     plot.roc(roc_cdf, print.auc = T, col ="blue", add = TRUE, lwd = 4
              , print.auc.x = 0.2, print.auc.y = 0.3, print.auc.col = "blue")
     
+    # Plot roc for Central Midfielders
     cm_act <- factor(ifelse(test_fmdf$Position == "CENTRAL MID", "CENTRAL MID", "non CENTRAL MID")) |>
       as.numeric()
     cm_pred <- factor(ifelse(tree_preds_3 == "CENTRAL MID", "CENTRAL MID", "non CENTRAL MID")) |>
@@ -104,6 +106,8 @@ final_models <- function(model_choice){
     plot.roc(roc_cm, print.auc = T, col = "turquoise2", add = T, lwd = 4
              , print.auc.x = 0.2, print.auc.y = 0.4, print.auc.col = "turquoise2")
     
+    
+    # Plot roc for left midfielder
     ldf_act <- factor(ifelse(test_fmdf$Position == "LEFT DEF", "LEFT DEF", "non LEFT DEF")) |>
       as.numeric()
     ldf_pred <- factor(ifelse(tree_preds_3 == "LEFT DEF", "LEFT DEF", "non LEFT DEF")) |>
@@ -112,6 +116,7 @@ final_models <- function(model_choice){
     plot.roc(roc_ldf, print.auc = T, col = "green", add = T, lwd = 4
              , print.auc.x = 0.2, print.auc.y = 0.45, print.auc.col = "green")
     
+    # Plot roc for forwards (ST/CF/CAM)
     fwd_act <- factor(ifelse(test_fmdf$Position == "FWD", "FWD", "non FWD")) |>
       as.numeric()
     fwd_pred <- factor(ifelse(tree_preds_3 == "FWD", "FWD", "non FWD")) |>
@@ -120,6 +125,8 @@ final_models <- function(model_choice){
     plot.roc(roc_fwd, print.auc = T, col = "purple", add = T, lwd = 4
              , print.auc.x = 0.2, print.auc.y = 0.5, print.auc.col = "purple")
     
+    
+    # Plot roc for Left Midfielders
     lm_act <- factor(ifelse(test_fmdf$Position == "LEFT MID", "LEFT MID", "non LEFT MID")) |>
       as.numeric()
     lm_pred <- factor(ifelse(tree_preds_3 == "LEFT MID", "LEFT MID", "non LEFT MID")) |>
@@ -128,6 +135,7 @@ final_models <- function(model_choice){
     plot.roc(roc_lm, print.auc = T, col = "orange", add = T, lwd = 4
              , print.auc.x = 0.2, print.auc.y = 0.55, print.auc.col = "orange")
     
+    # Plot roc for Right Midfielders
     rm_act <- factor(ifelse(test_fmdf$Position == "RIGHT MID", "RIGHT MID", "non RIGHT MID")) |>
       as.numeric()
     rm_pred <- factor(ifelse(tree_preds_3 == "RIGHT MID", "RIGHT MID", "non RIGHT MID")) |>
@@ -135,11 +143,14 @@ final_models <- function(model_choice){
     roc_rm <- roc(rm_act, rm_pred)
     auc_plot <- plot.roc(roc_rm, print.auc = T, col = "violetred", add = T, lwd = 4
                          , print.auc.x = 0.2, print.auc.y = 0.6, print.auc.col = "violetred")
+    
+    # Add a legend to the roc curve
     legend("bottomright",
       legend = c("CENTRAL DEF", "CENTRAL MID", "FWD", "GK", "LEFT DEF", 
                       "LEFT MID", "RIGHT MID"),
-      col = c("blue", "turquoise2", "purple", "red", "green", "orange", "violetred"),
-      lty = 1:1, xjust = 1, yjust = 1,
+      col = c("blue", "turquoise2", "purple", "red", "green", "orange", "violetred"), # Add different colors
+      lty = 1:1, # Set line type
+      xjust = 1, yjust = 1, # Adjust x and y orientations
            )
     
     return (auc_plot)

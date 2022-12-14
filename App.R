@@ -7,7 +7,7 @@ source("clustering.R", local = T)
 ui <- (
   shinyUI(
     # Dash board page starts
-    dashboardPage(skin="green",
+    dashboardPage(skin = "green",
       # 3 comps: header, sidebar, body
       
       # Header start here
@@ -42,21 +42,25 @@ ui <- (
                          menuItem("Player Details", # Create data to visualize traits of the players
                                   icon = icon("fa-solid fa-person", verify_fa = F),
                                   newtab = F, tabName = "Player"),
-                         menuItem("Team Strategy", icon = icon("fa-regular fa-users", verify_fa = T),
+                         menuItem("Team Strategy", icon = icon("fa-regular fa-users", verify_fa = F),
                                   newtab = F, tabName = "team", startExpanded = F,
                                   # Create drop down using menu sub Item
-                                  menuItem("Dream Team", # Create Tab for a Team based on constraints
+                                  menuSubItem("Dream Team", # Create Tab for a Team based on constraints
                                            icon = icon("fa-solid fa-people-group", verify_fa = F),
                                            newtab = F, tabName = "bestTeam"),
-                                  menuItem("My Team on Pitch", # Create Tab for best Teams
+                                  menuSubItem("My Team on Pitch", # Create Tab for best Teams
                                            tabName = "mychoiceTeam", newtab = F, 
                                            icon = icon("fa-solid fa-users", verify_fa = F))        
                          ),
                          menuItem("Development Archive", # Create a tab to keep old archives models
                                   icon = icon("archive", verify_fa = F),
                                   newtab = F, tabName = "archives"),
+                         menuItem("Down Memory Lane", # Recreate an old memory
+                                  icon = icon("fa-solid fa-memory", verify_fa = F),
+                                  newtab = F, tabName = "dml"),
                          menuItem("Get in Touch", icon = icon("fa-solid fa-address-card", verify_fa = F),
                                   newtab = F, tabName = "contact")
+                         
                        )
       ),
       # dashboard body starts here
@@ -207,12 +211,12 @@ ui <- (
                   ),
                   hr(),
                   fluidRow(
-                    column(6, 
+                    column(6,  
                            column(10, tableOutput("player1Details")),
-                           column(2, imageOutput("playerXImg"))),
+                           column(2, imageOutput("playerXImg")), style = "height: 200px"),
                     column(6,
                            column(10, tableOutput("player2Details")),
-                           column(2, imageOutput("playerYImg"))
+                           column(2, imageOutput("playerYImg")), style = "height: 200px"
                     ),
                   ),
                   hr(),
@@ -278,27 +282,48 @@ ui <- (
             ),
           
           
+          # Down Memory Lane
+          tabItem(tabName = "dml",
+                  fluidRow(
+                    column(12, imageOutput("sologoal") %>% withSpinner())
+                  )
+                  ),
+          
+          
           # Get in Touch Page
           tabItem(tabName = "contact",
                   fluidRow(
-                    column(3, tags$img("www/contact.jpg", width="200px", height="260px")),
-                    column(3, p(class = "card",
-                                em(HTML("fa-solid fa-phone"))))
-
+                    column(2, tags$img(src = "contact.jpg", width="200px", height="260px")),
+                    column(4, 
+                       HTML("<div class = 'card'>
+                                <h3>Aranya Kundu </h3>
+                                <p class = 'title'> Student - Master of Science in Business Analytics
+                                <br> Mendoza College of Business, <br> University of Notre Dame
+                                </p>
+                                <div style = 'margin: auto'>  
+                                    <i class = 'fa-solid fa-mobile'></i>
+                                        &nbsp;&nbsp;(+1) (574)-386-5029<br>
+                                    <i class='fa fa-linkedin'></i>       
+                                    <a href='https://www.linkedin.com/in/aranya-kundu/'>
+                                        &nbsp;&nbsp;Aranya Kundu</a><br>
+                                    <i class='fa fa-github'></i>
+                                    <a href='https://github.com/To-R-is-Human'>
+                                        &nbsp;&nbsp;To-R-is-Human</a><br>
+                                    <i class= 'fa fa-envelope'></i>
+                                    <a href = 'mailto:akundu@nd.edu'>&nbsp;&nbsp;Aranya Kundu</a>
+                                </div>
+                             </div>")
+                           )
                   )
           )
         ),
         
-        
-        ## Shiny BS Modal to display the data set inside a modal
-        bsModal(id="defVideo", title = "EA Sports", trigger = "homeButton", size="large",
-                tags$iframe(src="ea_video.mp4", 
-                            frameborder="0", 
-                            allow="autoplay; encrypted-media; picture-in-picture", class = "homeVideo")
-        ),
         tags$head(
           tags$script(src = "sidebar.js"),
-          tags$link(rel = "stylesheet", type = "text/css", href = "custom.css")
+          tags$link(rel = "stylesheet", type = "text/css", href = "custom.css"),
+          tags$link(rel="stylesheet", type = "text/css",
+                href = "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"),
+          tags$link(rel = "shortcut icon", href = "logo.ico")
         )
       )
     )  
@@ -316,9 +341,9 @@ server <- (
       if (input$selectData == 'FIFA 2021 Dataset'){
         df[, c(2:3, 5:6, 19, 21:23)]
       } else if(input$selectData == 'FIFA Players Table'){
-        players_df[,c(2, 7:9, 11, 12, 14, 44)]
+        players_df[ ,c(2, 7:9, 11, 12, 14, 44)]
       } else {
-        teams_df()
+        teams[, c(2:4, 10, 11, 14)]
       }
     })
     
@@ -416,21 +441,12 @@ server <- (
     output$playerYDetails <- renderDT(ready_player(data = players_df, player_Name = input$PlayerY))
     
     
-    # Code for improved Model tab 
-    modelImprovedOutput <- eventReactive(input$my_model_2, {
-      improved_model_analysis(position = input$positionX, model = input$ModelX)
-    })
-    
-    output$modelAnalysis <- renderDT(modelImprovedOutput())
-    
-    
     # best Team Tab Code 
     showbestTeam <- eventReactive(input$showTeam, {
       optimal_team(GK_count = input$GK_count, RB_count = input$RB_count, LB_count = input$LB_count, 
                    CB_count = input$CB_count, RM_count = input$RM_count, CM_count = input$CM_count, 
                    LM_count = input$LM_count, FW_count = input$FW_count, team_size = input$size)
     })
-    
     output$my_dream_team <- renderDT(showbestTeam())
     
     
@@ -447,9 +463,19 @@ server <- (
     output$cfmtbl <- renderTable(modelOut()) 
   
     
+    # Down Memory Lane
+    output$sologoal <- renderImage({
+      # Return a list containing the filename
+      list(src = "www/outfile.gif",
+           contentType = 'image/gif',
+           width = 1000,
+           height = 800,
+           maxwidth = "auto",
+           alt = "This is alternate text"
+      )}, deleteFile = F)
     
     # Contact Page
-    #output$myPhoto <- renderImage(list(src = file.path("www/contact.jpg")))
+    
   })
 )
 

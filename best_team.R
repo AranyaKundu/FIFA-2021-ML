@@ -11,12 +11,6 @@
 # 9. CM = 1 - 2
 # 10. FW = 1 - 3
 
-
-
-# main_players <- read.csv("D:/Coursework/Mod-2/Machine Learning/Project/New Folder/players.csv",
-#                          stringsAsFactors = TRUE, header = TRUE,
-#                          na.strings = c("", " ", "NA"))
-
 imp_df <- players_df[, c(2, 8, 9, 11)]
 
 imp_df$dummyGK <- ifelse(imp_df$str_best_position == 'GK', 1, 0)
@@ -56,7 +50,7 @@ optimal_team <- function(GK_count, RB_count, LB_count, CB_count, RM_count, CM_co
 }
 
 teams <- read.csv(
-  "D:/Coursework/Mod-2/Machine Learning/Project/New Folder/teams.csv", header = T)[, c(2:7, 10, 14)]
+  "./teams.csv", header = T)[, c(2:7, 10, 14)]
 teams_df <- function() {
   teams %>% rename("Team Name" = "str_team_name", 
                    "League" = "str_league",

@@ -11,14 +11,14 @@ library(naniar)
 library(gam)
 library(glmnet)
 library(forecast)
+library(tidyr)
+library(cluster)
 library(splitstackshape)
 library(neuralnet)
 library(DT)
 library(caret)
 library(rpart)
 library(randomForest)
-library(xgboost)
-library(xgboostExplainer)
 library(pROC)
 library(gganimate)
 library(ROI)
@@ -27,14 +27,15 @@ library(ompr)
 library(ompr.roi)
 library(ggimage) # Load ggimage
 library(ggsoccer) # Load ggsoccer for the soccer pitch
+
 # functions and other computations
 
 # read data from csv
-players_df <- read.csv("D:/Coursework/Mod-2/Machine Learning/Project/New Folder/players.csv",
+players_df <- read.csv("./players.csv",
                stringsAsFactors = TRUE, header = TRUE,
                na.strings = c("", " ", "NA"))
 
-df <- read.csv("D:/Coursework/Mod-2/Machine Learning/Project/New Folder/fifa21.csv",
+df <- read.csv("./fifa21.csv",
                        stringsAsFactors = TRUE, header = TRUE,
                        na.strings = c("", " ", "NA"))
 
@@ -134,7 +135,7 @@ my_model <- function(model_type){
     x_train_vars <- scale(train_dataset[, -c(1,2, 4, 47, 48)])
     
     # remove all categorical variables
-    test_scale_lasso <- scale(test_dataset[, -c(2, 4, 47, 48)])
+    test_scale_lasso <- scale(test_dataset[, -c(2, 4, 47, 48)])[, -1]
     
     #lasso Cross validation
     lambda_seq <- seq(from = 0.001, to = 1, by = 0.01)
