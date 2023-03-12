@@ -1,5 +1,5 @@
-source("ml_project.R", local = TRUE)
-source("potential.R", local = TRUE)
+source("ml_project.R", local = T)
+source("potential.R", local = T)
 source("best_team.R", local = T)
 source("clustering.R", local = T)
 
@@ -9,9 +9,10 @@ ui <- (
     # Dash board page starts
     dashboardPage(skin = "green",
       # 3 comps: header, sidebar, body
-      
+      title = "FIFA 2021 ML Applications",
       # Header start here
-      dashboardHeader(title = "FIFA 2021"), # Set header
+      dashboardHeader(title = tags$img(src = "fifa-21-logo.png", height = 28)
+                      ), #"FIFA 2021"), # Set header
       
       # Dashboard sidebar start here
       dashboardSidebar(collapsed = T,
@@ -80,11 +81,11 @@ ui <- (
           tabItem(tabName = "dataset", # Display three data sets used for the model
                   fluidRow(
                     # Create drop down to select the data set to display
-                    column(3, selectInput("selectData", label = "Choose Dataset",
+                    column(2, selectInput("selectData", label = "Choose Dataset",
                                           choices = c("FIFA 2021 Dataset", "FIFA Players Table",
                                                       "FIFA Teams Table"))
                     ),
-                    column(3, actionButton("display", label = "Display", class = "bttn button-1"))
+                    column(1, HTML("<br><br>"), actionButton("display", class = "btn", label = "Display"))
                   ),
                   div(class="container", DTOutput("mydataset") %>% withSpinner())
           ),
@@ -101,8 +102,8 @@ ui <- (
                            selectInput("selectY", label = "Choose Y-axis Variable", 
                                        choices = viz_cols, multiple = F)
                     ),
-                    column(4, # Create action button to display the plot
-                           actionButton("doAction", label = "Visualize", class = "bttn button-2"))
+                    column(1, # Create action button to display the plot
+                           HTML("<br><br>"), actionButton("doAction", label = "Visualize", class = "btn"))
                   ),
                   fluidRow(
                     column(12, withSpinner(plotOutput("viz_Plot"))) # Add spinner while loading
@@ -110,7 +111,7 @@ ui <- (
           ),
           
           
-          # Teams Tab
+          # Data Visualization - Teams
           tabItem(tabName = "teams",
                   fluidRow( # Create drop down to choose league
                     column(3, selectInput("selectLeague", label = "Choose League", 
@@ -123,7 +124,7 @@ ui <- (
                     column(3, selectInput("axis_y", label = "Y Axis Variable", 
                                           choices = names(teams), multiple = F)),
                     # Create action button to display the plot
-                    column(3, actionButton("showPlot", label = "Display", class = "bttn button-1"))
+                    column(1, HTML("<br><br>"), actionButton("showPlot", label = "Display", class = "btn"))
                   ),
                   fluidRow(# Add spinner while loading
                     column(12, withSpinner(plotOutput("coolplot1")))
@@ -137,10 +138,10 @@ ui <- (
                     column(3, numericInput("noclusters", label = "Number of Clusters", 
                                            min = 5, max = 50, value = 10, step = 1)),
                     # Create action button to visualize the plot
-                    column(3, actionButton("heatmap", label = "Visualize", class = "btn btn-info"))
+                    column(2, HTML("<br><br>"), actionButton("heatmap", label = "Visualize", class = "btn"))
                   ),
                   fluidRow(# Add spinner while loading
-                    column(width = 12, withSpinner(plotOutput("heatwave")))
+                    column(width = 12, withSpinner(plotOutput("heatwave"), type = 5))
                   )
           ),
           
@@ -152,15 +153,16 @@ ui <- (
                            selectInput("ModelX", label = "Choose any model from the list", 
                                        choices = c("Select", "Linear Model", "General Additive Model",
                                                    "Lasso Regression"), selected = "select")),
-                    column(3, # Create action button to compute using the model selected
-                           actionButton("my_model_1", label = "Compute", class = "bttn button-1")),
+                    column(1, # Create action button to compute using the model selected
+                           HTML("<br><br>"), actionButton("my_model_1", label = "Compute", class = "btn")),
+                    column(2),
                     column(3, # Create drop down to select which model to apply
                            selectInput("ModelY", label ="Choose a different Model from the list",
                                        choices = c("Select", "Linear Model", "General Additive Model",
                                                    "Lasso Regression"), selected = "select")
                     ),
-                    column(3, # Create action button to compute based on selected model
-                           actionButton("my_model_2", label = "Compute", class = "bttn button-1"))
+                    column(1, # Create action button to compute based on selected model
+                           HTML("<br><br>"), actionButton("my_model_2", label = "Compute", class = "btn"))
                   ),
                   fluidRow(
                     column(5, # Create data table output to display output from 1st model
@@ -175,15 +177,17 @@ ui <- (
           # Position ML Page 
           tabItem(tabName = "position",
                   fluidRow(
-                    column(4,
+                    column(3,
                            selectizeInput("player", label = "Choose any player from the list", 
                                        choices = NULL, multiple = F)),
-                    column(2,
-                           actionButton("displayPlayer", label = "Display", class = "bttn button-1")),
-                    column(4, selectInput("modelinUse", label = "Choose a ML Model",
-                                          choices = c("Decision Tree", "Bootsrap Aggregation"),
+                    column(2, HTML("<br><br>"), 
+                           actionButton("displayPlayer", label = "Display", class = "btn")),
+                    column(1),
+                    column(3, selectInput("modelinUse", label = "Choose a ML Model",
+                                          choices = c("Decision Tree", "Bootstrap Aggregation"
+                                                      , "XGBoost"),
                                           multiple = F)),
-                    column(2,
+                    column(2, HTML("<br><br>"),
                            actionButton("showAUC", label = "Show AUC", class = "btn"))
                   ),
                   fluidRow(
@@ -200,13 +204,15 @@ ui <- (
                            column(8, selectizeInput("PlayerX", "Select player - 1", 
                                                     choices = NULL, multiple = F
                            )),
-                           column(4, actionButton("my_player_1", label = "Display", class = "button-2"))
+                           column(4, HTML("<br><br>"),
+                                  actionButton("my_player_1", label = "Display", class = "btn button-2"))
                     ),
                     column(6,
                            column(8, selectizeInput("PlayerY", "Select player - 2", 
                                                     choices = NULL, multiple = F
                            )),
-                           column(4, actionButton("my_player_2", label = "Display", class = "button-2"))
+                           column(4, HTML("<br><br>"),
+                                  actionButton("my_player_2", label = "Display", class = "btn button-2"))
                     )
                   ),
                   hr(),
@@ -252,17 +258,18 @@ ui <- (
                            numericInput("FW_count", "Forward", min = 1, max = 7, value = 2, step = 1)),
                     column(2, 
                            numericInput("size", "Team Size", min = 11, max = 40, value = 14, step = 1)),
-                    column(2, actionButton("showTeam", label = "Show", class = "btn button-2"))
+                    column(2, HTML("<br><br>"),
+                           actionButton("showTeam", label = "Show", class = "btn button-2"))
                   ),
-                  fluidRow(withSpinner(DTOutput("my_dream_team")))
+                  fluidRow(withSpinner(DTOutput("my_dream_team"), type = 4))
           ),
           
           
           # Soccer Pitch
           tabItem(tabName = "mychoiceTeam",
                   fluidRow(
-                    column(6, plotOutput("my_choice_team_433") %>% withSpinner()),
-                    column(6, plotOutput("my_choice_team_442") %>% withSpinner())
+                    column(6, plotOutput("my_choice_team_433") %>% withSpinner(type = 7)),
+                    column(6, plotOutput("my_choice_team_442") %>% withSpinner(type = 7))
                   )
               ),
           
@@ -274,10 +281,11 @@ ui <- (
                                           choices = c("Single Decision Tree",
                                                       "Clustered Single Decision Tree"))
                            ),
-                    column(2, actionButton("showModel", label = "Compute", class = "button-1"))
+                    column(2, HTML("<br><br>"),
+                           actionButton("showModel", label = "Compute", class = "btn button-1"))
                   ),
                   fluidRow(
-                    column(10, tableOutput("cfmtbl") %>%  withSpinner())
+                    column(10, tableOutput("cfmtbl") %>%  withSpinner(type = 6))
                   )
             ),
           
@@ -285,7 +293,7 @@ ui <- (
           # Down Memory Lane
           tabItem(tabName = "dml",
                   fluidRow(
-                    column(12, imageOutput("sologoal") %>% withSpinner())
+                    column(12, imageOutput("sologoal") %>% withSpinner(type = 6))
                   )
                   ),
           
@@ -319,6 +327,13 @@ ui <- (
         ),
         
         tags$head(
+          tags$meta(content = "text/html; charset=utf-8"),
+          tags$meta(name = "viewport", content = "width=device-width, initial-scale=1"),
+          tags$meta(name = "description", content = "Fifa 2021, Fifa 21, Fifa, Shiny App, 
+                    Machine Learning using Fifa, EA Sports"),
+          tags$meta(name = "description", 
+                    content = "Machine Learning (ML) project using Fifa 2021 Dataset"),
+          tags$meta(name = "author", content = "Aranya Kundu"),
           tags$script(src = "sidebar.js"),
           tags$link(rel = "stylesheet", type = "text/css", href = "custom.css"),
           tags$link(rel="stylesheet", type = "text/css",
@@ -335,6 +350,11 @@ ui <- (
 
 server <- (
   shinyServer(function(input, output, session) {
+    
+    # Code for Home Button
+    observeEvent(input$homeButton, {
+      shinyjs::runjs('var snd = new Audio("EA Sports - Sound.mp3"); snd.play();')
+    })
     
     # Code for data set Tab
     data <- eventReactive(input$display, { # Triggers on click of the button
@@ -452,8 +472,8 @@ server <- (
     
     # Pitch best Team
     # Set height and width of each pitch
-    output$my_choice_team_433 <- renderPlot(choiceTeam_433(), width = "auto", height = 725)
-    output$my_choice_team_442 <- renderPlot(choiceTeam_442(), width = "auto", height = 725)
+    output$my_choice_team_433 <- renderPlot(choiceTeam_433(), height = 700)
+    output$my_choice_team_442 <- renderPlot(choiceTeam_442(), height = 700)
     
     
     # Development Archive Tab Code

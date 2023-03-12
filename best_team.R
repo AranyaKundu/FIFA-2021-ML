@@ -46,8 +46,11 @@ optimal_team <- function(GK_count, RB_count, LB_count, CB_count, RM_count, CM_co
   dream1 <- imp_df[solved$solution>0, ]
   dream_team <- players_df[which(players_df$str_player_name %in% dream1$str_player_name), 
                              c(2, 4:6, 8:9, 11:12, 44)]
+  budget_for_best_team <- sum(dream_team[, 7])
   return (dream_team)
 }
+
+
 
 teams <- read.csv(
   "./teams.csv", header = T)[, c(2:7, 10, 14)]
@@ -68,23 +71,23 @@ teams_df <- function() {
 
 choiceTeam_433 <- function(){
   
-  z_433 <- players_df[c(5, 7, 1, 4, 28, 68, 33, 11, 65, 31, 3), c(2, 57)]
+  image_list <- list.files(path = "www", pattern = ".png", full.names = F)
+  team_list <- c(5, 7, 1, 4, 28, 68, 33, 11, 65, 31, 3)
+  
+  z_433 <- players_df[team_list, c(2, 57)]
   team_coords <- data.frame(x = c(25, 17, 25, 50, 43, 50, 75, 80, 80, 75, 95),
                             y = c(15, 50, 85, 15, 50, 85, 12, 37, 62, 87, 50),
-                            photo = z_433$str_player_image_url, 
+                            photo <- paste0("www/", team_list, ".png"),
                             name = z_433$str_player_name)
   
-  # dims <- list(length = 100, width = 100, penalty_box_length = 16,
-  #                   penalty_box_width = 60, six_yard_box_length = 3, six_yard_box_width = 20,
-  #                   penalty_spot_distance = 4, goal_width = 16, origin_x = 0, origin_y = 0)
   
   
   pitch_433 <- ggplot(team_coords) + # set data for the plot
-    annotate_pitch(colour = "white", # set colour of pitch
-                   fill = "springgreen4") + #set fill pitch colour
+    annotate_pitch(colour = "white", # set color of pitch
+                   fill = "springgreen4") + #set fill pitch color
     geom_image(aes(x = 100 - x, y = y), # Set x and y axis co-ordinates
                image = team_coords$photo, asp = 4/3) + # Set images of players to be printed
-    geom_text(data = team_coords, aes(x = 95-x, y = y, label = name)) + # Set player names below images 
+    geom_text(data = team_coords, aes(x = 95 - x, y = y, label = name)) + # Set player names below images 
     theme_pitch() + # Set pitch theme
     coord_flip() + #Flip the coordinates for adjusting two different formations
     theme(panel.background = element_rect(fill = "springgreen3"),
@@ -96,10 +99,11 @@ choiceTeam_433 <- function(){
 # Pitch with formation 4-4-2
 
 choiceTeam_442 <- function(){
-  z_442 <- players_df[c(2, 6, 10, 4, 68, 9, 20, 17, 34, 31, 12), c(2, 57)]
+  team_list <- c(2, 6, 10, 4, 68, 9, 20, 17, 34, 31, 12)
+  z_442 <- players_df[team_list, c(2, 57)]
   position_coords <- data.frame(x = c(75, 75, 50, 45, 45, 50, 25, 20, 20, 25, 5),
                                 y = c(33, 67, 12, 37, 62, 87, 12, 37, 62, 87, 50),
-                                photo = z_442$str_player_image_url,
+                                photo = paste0("www/", team_list, ".png"),
                                 name = z_442$str_player_name)  
   pitch_442 <- ggplot(position_coords) + # set data for the plot
     annotate_pitch(colour = "white", # set colour of pitch
